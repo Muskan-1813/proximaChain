@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LCRI Assessment Tool - ProximaChain</title>
+    <meta name="description" content="Get your supply chain resilience score in under 5 minutes. Transform climate risks into actionable procurement intelligence with our interactive LCRI assessment." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fproximacha1745back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+  <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-background">
+    <!-- Navigation Header -->
+    <nav class="bg-white shadow-subtle sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-8 w-8 text-primary" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                            <circle cx="16" cy="16" r="4" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-bold text-primary">ProximaChain</h1>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="homepage.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-colors">Home</a>
+                        <a href="lcri_assessment_tool.html" class="text-primary font-semibold px-3 py-2 rounded-md text-sm">LCRI Assessment</a>
+                        <a href="results_dashboard.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-colors">Dashboard</a>
+                        <a href="market_intelligence.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-colors">Market Intelligence</a>
+                        <a href="supplier_optimization.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-colors">Supplier Optimization</a>
+                        <a href="roi_calculator.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-colors">ROI Calculator</a>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a href="results_dashboard.html" class="btn-primary">View Dashboard</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="text-text-secondary hover:text-primary p-2" onclick="toggleMobileMenu()">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-surface">
+                <a href="homepage.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Home</a>
+                <a href="lcri_assessment_tool.html" class="text-primary font-semibold block px-3 py-2 rounded-md text-base">LCRI Assessment</a>
+                <a href="results_dashboard.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Dashboard</a>
+                <a href="market_intelligence.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Market Intelligence</a>
+                <a href="supplier_optimization.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Supplier Optimization</a>
+                <a href="roi_calculator.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">ROI Calculator</a>
+                <div class="px-3 py-2">
+                    <a href="results_dashboard.html" class="btn-primary w-full text-center">View Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Assessment Header -->
+    <section class="bg-gradient-to-br from-primary-50 to-accent-50 py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-3xl lg:text-5xl font-bold text-primary mb-4">
+                LCRI Assessment Tool
+            </h1>
+            <p class="text-xl text-text-secondary mb-6 max-w-3xl mx-auto">
+                Get your supply chain resilience score in under 5 minutes. Transform climate risks into actionable procurement intelligence.
+            </p>
+            
+            <!-- Progress Indicator -->
+            <div class="bg-white rounded-lg p-6 shadow-subtle max-w-2xl mx-auto">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-sm font-medium text-text-primary">Assessment Progress</span>
+                    <span class="text-sm text-text-secondary" id="progress-text">Step 1 of 5</span>
+                </div>
+                <div class="w-full bg-surface-200 rounded-full h-2">
+                    <div class="bg-accent h-2 rounded-full transition-all duration-300" style="width: 20%" id="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Assessment Form -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Assessment Steps -->
+                <div class="lg:col-span-2">
+                    <div class="bg-white rounded-xl shadow-elevated p-8">
+                        <!-- Step 1: Company Information -->
+                        <div id="step-1" class="assessment-step">
+                            <div class="flex items-center mb-6">
+                                <div class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-white font-semibold mr-4">1</div>
+                                <h2 class="text-2xl font-bold text-primary">Company Information</h2>
+                            </div>
+                            
+                            <div class="space-y-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Company Name</label>
+                                    <input type="text" class="input-field" placeholder="Enter your company name" id="company-name" />
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-text-primary mb-2">Industry Sector</label>
+                                        <select class="input-field" id="industry-sector" onchange="updateRiskScore()">
+                                            <option value>Select your industry</option>
+                                            <option value="manufacturing">Manufacturing</option>
+                                            <option value="retail">Retail & Consumer Goods</option>
+                                            <option value="automotive">Automotive</option>
+                                            <option value="electronics">Electronics</option>
+                                            <option value="textiles">Textiles & Apparel</option>
+                                            <option value="food-beverage">Food & Beverage</option>
+                                            <option value="construction">Construction</option>
+                                            <option value="chemicals">Chemicals</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-text-primary mb-2">Annual Revenue</label>
+                                        <select class="input-field" id="annual-revenue" onchange="updateRiskScore()">
+                                            <option value>Select revenue range</option>
+                                            <option value="under-1m">Under $1M</option>
+                                            <option value="1-10m">$1M - $10M</option>
+                                            <option value="10-50m">$10M - $50M</option>
+                                            <option value="50-100m">$50M - $100M</option>
+                                            <option value="100m-plus">$100M+</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Number of Employees</label>
+                                    <select class="input-field" id="employee-count">
+                                        <option value>Select employee range</option>
+                                        <option value="1-10">1-10 employees</option>
+                                        <option value="11-50">11-50 employees</option>
+                                        <option value="51-200">51-200 employees</option>
+                                        <option value="201-500">201-500 employees</option>
+                                        <option value="500-plus">500+ employees</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Supply Chain Overview -->
+                        <div id="step-2" class="assessment-step hidden">
+                            <div class="flex items-center mb-6">
+                                <div class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-white font-semibold mr-4">2</div>
+                                <h2 class="text-2xl font-bold text-primary">Supply Chain Overview</h2>
+                            </div>
+                            
+                            <div class="space-y-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Primary Supply Region</label>
+                                    <select class="input-field" id="supply-region" onchange="updateRiskScore()">
+                                        <option value>Select primary region</option>
+                                        <option value="north-america">North America</option>
+                                        <option value="europe">Europe</option>
+                                        <option value="asia-pacific">Asia Pacific</option>
+                                        <option value="latin-america">Latin America</option>
+                                        <option value="africa-middle-east">Africa & Middle East</option>
+                                        <option value="global-mix">Global Mix</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-text-primary mb-2">Number of Key Suppliers</label>
+                                        <select class="input-field" id="supplier-count" onchange="updateRiskScore()">
+                                            <option value>Select range</option>
+                                            <option value="1-5">1-5 suppliers</option>
+                                            <option value="6-20">6-20 suppliers</option>
+                                            <option value="21-50">21-50 suppliers</option>
+                                            <option value="51-100">51-100 suppliers</option>
+                                            <option value="100-plus">100+ suppliers</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-text-primary mb-2">Supply Chain Complexity</label>
+                                        <select class="input-field" id="complexity" onchange="updateRiskScore()">
+                                            <option value>Select complexity</option>
+                                            <option value="simple">Simple (Direct suppliers only)</option>
+                                            <option value="moderate">Moderate (2-3 tier suppliers)</option>
+                                            <option value="complex">Complex (Multi-tier, global)</option>
+                                            <option value="highly-complex">Highly Complex (Extensive network)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Top 3 Supplier Dependencies</label>
+                                    <div class="space-y-3">
+                                        <input type="text" class="input-field" placeholder="Primary supplier or material category" id="dependency-1" />
+                                        <input type="text" class="input-field" placeholder="Secondary supplier or material category" id="dependency-2" />
+                                        <input type="text" class="input-field" placeholder="Third supplier or material category" id="dependency-3" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Carbon Intensity Assessment -->
+                        <div id="step-3" class="assessment-step hidden">
+                            <div class="flex items-center mb-6">
+                                <div class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-white font-semibold mr-4">3</div>
+                                <h2 class="text-2xl font-bold text-primary">Carbon Intensity Assessment</h2>
+                            </div>
+                            
+                            <div class="space-y-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Current Carbon Tracking</label>
+                                    <select class="input-field" id="carbon-tracking" onchange="updateRiskScore()">
+                                        <option value>Select current status</option>
+                                        <option value="none">No carbon tracking</option>
+                                        <option value="basic">Basic internal tracking</option>
+                                        <option value="supplier-data">Some supplier carbon data</option>
+                                        <option value="comprehensive">Comprehensive Scope 3 tracking</option>
+                                        <option value="verified">Third-party verified data</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-text-primary mb-2">Energy-Intensive Materials (%)</label>
+                                        <select class="input-field" id="energy-materials" onchange="updateRiskScore()">
+                                            <option value>Select percentage</option>
+                                            <option value="0-10">0-10%</option>
+                                            <option value="11-25">11-25%</option>
+                                            <option value="26-50">26-50%</option>
+                                            <option value="51-75">51-75%</option>
+                                            <option value="76-100">76-100%</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-text-primary mb-2">Transportation Emissions</label>
+                                        <select class="input-field" id="transport-emissions" onchange="updateRiskScore()">
+                                            <option value>Select impact level</option>
+                                            <option value="low">Low (Local/Regional)</option>
+                                            <option value="moderate">Moderate (National)</option>
+                                            <option value="high">High (International)</option>
+                                            <option value="very-high">Very High (Global, Air freight)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Supplier Sustainability Practices</label>
+                                    <div class="space-y-3">
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="mr-3 text-accent" id="renewable-energy" />
+                                            <span class="text-text-primary">Suppliers use renewable energy</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="mr-3 text-accent" id="carbon-neutral" />
+                                            <span class="text-text-primary">Carbon neutral commitments</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="mr-3 text-accent" id="circular-economy" />
+                                            <span class="text-text-primary">Circular economy practices</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="mr-3 text-accent" id="sustainability-certs" />
+                                            <span class="text-text-primary">Sustainability certifications</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Regulatory Exposure -->
+                        <div id="step-4" class="assessment-step hidden">
+                            <div class="flex items-center mb-6">
+                                <div class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-white font-semibold mr-4">4</div>
+                                <h2 class="text-2xl font-bold text-primary">Regulatory Exposure</h2>
+                            </div>
+                            
+                            <div class="space-y-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Operating Markets</label>
+                                    <div class="grid md:grid-cols-2 gap-3">
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="mr-3 text-accent" id="market-eu" onchange="updateRiskScore()" />
+                                            <span class="text-text-primary">European Union</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="mr-3 text-accent" id="market-us" onchange="updateRiskScore()" />
+                                            <span class="text-text-primary">United States</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="mr-3 text-accent" id="market-canada" onchange="updateRiskScore()" />
+                                            <span class="text-text-primary">Canada</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="mr-3 text-accent" id="market-uk" onchange="updateRiskScore()" />
+                                            <span class="text-text-primary">United Kingdom</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="mr-3 text-accent" id="market-australia" onchange="updateRiskScore()" />
+                                            <span class="text-text-primary">Australia</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="mr-3 text-accent" id="market-other" onchange="updateRiskScore()" />
+                                            <span class="text-text-primary">Other Markets</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-text-primary mb-2">Current Compliance Status</label>
+                                        <select class="input-field" id="compliance-status" onchange="updateRiskScore()">
+                                            <option value>Select status</option>
+                                            <option value="not-applicable">Not currently applicable</option>
+                                            <option value="monitoring">Monitoring requirements</option>
+                                            <option value="preparing">Preparing for compliance</option>
+                                            <option value="partially-compliant">Partially compliant</option>
+                                            <option value="fully-compliant">Fully compliant</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-text-primary mb-2">Regulatory Timeline Concern</label>
+                                        <select class="input-field" id="timeline-concern" onchange="updateRiskScore()">
+                                            <option value>Select timeline</option>
+                                            <option value="immediate">Immediate (0-6 months)</option>
+                                            <option value="short-term">Short-term (6-18 months)</option>
+                                            <option value="medium-term">Medium-term (1-3 years)</option>
+                                            <option value="long-term">Long-term (3+ years)</option>
+                                            <option value="uncertain">Uncertain timeline</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Estimated Annual Carbon Tax Exposure</label>
+                                    <select class="input-field" id="tax-exposure" onchange="updateRiskScore()">
+                                        <option value>Select estimated range</option>
+                                        <option value="under-10k">Under $10,000</option>
+                                        <option value="10k-50k">$10,000 - $50,000</option>
+                                        <option value="50k-100k">$50,000 - $100,000</option>
+                                        <option value="100k-500k">$100,000 - $500,000</option>
+                                        <option value="500k-1m">$500,000 - $1M</option>
+                                        <option value="1m-plus">$1M+</option>
+                                        <option value="unknown">Unknown</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 5: Risk Tolerance & Goals -->
+                        <div id="step-5" class="assessment-step hidden">
+                            <div class="flex items-center mb-6">
+                                <div class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-white font-semibold mr-4">5</div>
+                                <h2 class="text-2xl font-bold text-primary">Risk Tolerance & Goals</h2>
+                            </div>
+                            
+                            <div class="space-y-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Primary Assessment Goal</label>
+                                    <select class="input-field" id="assessment-goal">
+                                        <option value>Select primary goal</option>
+                                        <option value="cost-reduction">Cost reduction & optimization</option>
+                                        <option value="risk-mitigation">Risk mitigation & compliance</option>
+                                        <option value="competitive-advantage">Competitive advantage</option>
+                                        <option value="sustainability-goals">Sustainability goals</option>
+                                        <option value="investor-requirements">Investor requirements</option>
+                                        <option value="customer-demands">Customer demands</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-text-primary mb-2">Risk Tolerance Level</label>
+                                        <select class="input-field" id="risk-tolerance">
+                                            <option value>Select tolerance</option>
+                                            <option value="conservative">Conservative (Minimize all risks)</option>
+                                            <option value="moderate">Moderate (Balanced approach)</option>
+                                            <option value="aggressive">Aggressive (Accept higher risks for rewards)</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-text-primary mb-2">Implementation Timeline</label>
+                                        <select class="input-field" id="implementation-timeline">
+                                            <option value>Select timeline</option>
+                                            <option value="immediate">Immediate (0-3 months)</option>
+                                            <option value="short-term">Short-term (3-12 months)</option>
+                                            <option value="medium-term">Medium-term (1-2 years)</option>
+                                            <option value="long-term">Long-term (2+ years)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Budget for Supply Chain Optimization</label>
+                                    <select class="input-field" id="optimization-budget">
+                                        <option value>Select budget range</option>
+                                        <option value="under-10k">Under $10,000</option>
+                                        <option value="10k-50k">$10,000 - $50,000</option>
+                                        <option value="50k-100k">$50,000 - $100,000</option>
+                                        <option value="100k-250k">$100,000 - $250,000</option>
+                                        <option value="250k-500k">$250,000 - $500,000</option>
+                                        <option value="500k-plus">$500,000+</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Additional Comments or Specific Concerns</label>
+                                    <textarea class="input-field" rows="4" placeholder="Share any specific challenges, concerns, or goals for your supply chain resilience..." id="additional-comments"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Buttons -->
+                        <div class="flex justify-between mt-8 pt-6 border-t border-surface-200">
+                            <button type="button" class="btn-secondary" id="prev-btn" onclick="previousStep()" style="display: none;">
+                                <svg class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"/>
+                                </svg>
+                                Previous
+                            </button>
+                            
+                            <button type="button" class="btn-primary ml-auto" id="next-btn" onclick="nextStep()">
+                                Next
+                                <svg class="h-5 w-5 ml-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Risk Score Panel -->
+                <div class="lg:col-span-1">
+                    <div class="bg-white rounded-xl shadow-elevated p-6 sticky top-24">
+                        <h3 class="text-xl font-bold text-primary mb-4">Live LCRI Score</h3>
+                        
+                        <!-- Score Display -->
+                        <div class="text-center mb-6">
+                            <div class="text-5xl font-bold mb-2" id="live-score" style="color: #d69e2e;">--</div>
+                            <div class="text-sm text-text-secondary mb-4" id="score-label">Complete assessment for score</div>
+                            <div class="w-full bg-surface-200 rounded-full h-3">
+                                <div class="h-3 rounded-full transition-all duration-500" id="score-bar" style="width: 0%; background-color: #d69e2e;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Risk Factors -->
+                        <div class="space-y-4 mb-6">
+                            <h4 class="font-semibold text-text-primary">Key Risk Factors</h4>
+                            
+                            <div class="flex items-center justify-between" id="carbon-risk">
+                                <span class="text-sm text-text-secondary">Carbon Intensity</span>
+                                <span class="text-sm font-medium text-text-muted">Not assessed</span>
+                            </div>
+                            
+                            <div class="flex items-center justify-between" id="geographic-risk">
+                                <span class="text-sm text-text-secondary">Geographic Risk</span>
+                                <span class="text-sm font-medium text-text-muted">Not assessed</span>
+                            </div>
+                            
+                            <div class="flex items-center justify-between" id="regulatory-risk">
+                                <span class="text-sm text-text-secondary">Regulatory Exposure</span>
+                                <span class="text-sm font-medium text-text-muted">Not assessed</span>
+                            </div>
+                            
+                            <div class="flex items-center justify-between" id="supplier-risk">
+                                <span class="text-sm text-text-secondary">Supplier Concentration</span>
+                                <span class="text-sm font-medium text-text-muted">Not assessed</span>
+                            </div>
+                        </div>
+
+                        <!-- Potential Savings Preview -->
+                        <div class="bg-surface rounded-lg p-4 mb-6" id="savings-preview" style="display: none;">
+                            <h4 class="font-semibold text-text-primary mb-2">Potential Impact</h4>
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="text-sm text-text-secondary">Risk Exposure</span>
+                                    <span class="text-sm font-medium text-error" id="risk-exposure">$--</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-sm text-text-secondary">Optimization Savings</span>
+                                    <span class="text-sm font-medium text-secondary" id="optimization-savings">$--</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Help & Tips -->
+                        <div class="bg-accent-50 rounded-lg p-4">
+                            <div class="flex items-start">
+                                <svg class="h-5 w-5 text-accent mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"/>
+                                </svg>
+                                <div>
+                                    <h5 class="font-medium text-accent mb-1">Assessment Tips</h5>
+                                    <p class="text-sm text-accent-700" id="step-tip">Provide accurate company information for the most relevant risk assessment.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Preview Modal -->
+    <div id="results-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-2xl w-full max-h-screen overflow-y-auto">
+            <div class="p-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold text-primary">Your LCRI Assessment Results</h2>
+                    <button onclick="closeResultsModal()" class="text-text-muted hover:text-text-primary">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Final Score Display -->
+                <div class="text-center mb-8">
+                    <div class="text-6xl font-bold mb-2" id="final-score" style="color: #d69e2e;">72</div>
+                    <div class="text-lg text-text-secondary mb-4" id="final-score-label">Moderate Risk - Optimization Recommended</div>
+                    <div class="w-full bg-surface-200 rounded-full h-4 max-w-md mx-auto">
+                        <div class="h-4 rounded-full" id="final-score-bar" style="width: 72%; background-color: #d69e2e;"></div>
+                    </div>
+                </div>
+
+                <!-- Key Insights -->
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-error-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-error mb-2">Potential Risk Exposure</h4>
+                        <div class="text-2xl font-bold text-error" id="modal-risk-exposure">$2.3M</div>
+                        <p class="text-sm text-error-500 mt-1">Over next 5 years</p>
+                    </div>
+                    
+                    <div class="bg-secondary-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-secondary mb-2">Optimization Potential</h4>
+                        <div class="text-2xl font-bold text-secondary" id="modal-optimization-savings">$450K</div>
+                        <p class="text-sm text-secondary-600 mt-1">Annual savings opportunity</p>
+                    </div>
+                </div>
+
+                <!-- Top Recommendations -->
+                <div class="mb-8">
+                    <h4 class="font-semibold text-text-primary mb-4">Top Recommendations</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <div class="w-6 h-6 bg-warning rounded-full flex items-center justify-center mr-3 mt-0.5">
+                                <span class="text-white text-xs font-bold">1</span>
+                            </div>
+                            <div>
+                                <h5 class="font-medium text-text-primary">Diversify High-Risk Suppliers</h5>
+                                <p class="text-sm text-text-secondary">Reduce dependency on carbon-intensive suppliers in Asia-Pacific region</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-6 h-6 bg-warning rounded-full flex items-center justify-center mr-3 mt-0.5">
+                                <span class="text-white text-xs font-bold">2</span>
+                            </div>
+                            <div>
+                                <h5 class="font-medium text-text-primary">Implement Carbon Tracking</h5>
+                                <p class="text-sm text-text-secondary">Establish baseline measurements for Scope 3 emissions</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-6 h-6 bg-warning rounded-full flex items-center justify-center mr-3 mt-0.5">
+                                <span class="text-white text-xs font-bold">3</span>
+                            </div>
+                            <div>
+                                <h5 class="font-medium text-text-primary">Prepare for EU Regulations</h5>
+                                <p class="text-sm text-text-secondary">Begin compliance preparation for upcoming carbon border adjustments</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="results_dashboard.html" class="btn-primary flex-1 text-center">
+                        View Full Dashboard
+                    </a>
+                    <a href="supplier_optimization.html" class="btn-secondary flex-1 text-center">
+                        Optimize Suppliers
+                    </a>
+                </div>
+                
+                <p class="text-sm text-text-muted text-center mt-4">
+                    Assessment completed on September 29, 2025
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-primary-800 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-secondary mr-3" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                            <circle cx="16" cy="16" r="4" fill="currentColor"/>
+                        </svg>
+                        <h3 class="text-xl font-bold">ProximaChain</h3>
+                    </div>
+                    <p class="text-primary-200 mb-6 max-w-md">
+                        The credit score for supply chain resilience. Transform climate risks into competitive advantages with actionable procurement intelligence.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold mb-4">Platform</h4>
+                    <ul class="space-y-2">
+                        <li><a href="lcri_assessment_tool.html" class="text-primary-200 hover:text-white transition-colors">LCRI Assessment</a></li>
+                        <li><a href="results_dashboard.html" class="text-primary-200 hover:text-white transition-colors">Dashboard</a></li>
+                        <li><a href="market_intelligence.html" class="text-primary-200 hover:text-white transition-colors">Market Intelligence</a></li>
+                        <li><a href="supplier_optimization.html" class="text-primary-200 hover:text-white transition-colors">Supplier Optimization</a></li>
+                        <li><a href="roi_calculator.html" class="text-primary-200 hover:text-white transition-colors">ROI Calculator</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">API Reference</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">Contact Support</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">System Status</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-primary-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-primary-200 text-sm">
+                    © 2025 ProximaChain. All Rights Reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white text-sm transition-colors">Terms of Service</a>
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white text-sm transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 5;
+        let assessmentData = {};
+
+        // Step tips for contextual guidance
+        const stepTips = {
+            1: "Provide accurate company information for the most relevant risk assessment.",
+            2: "Consider your entire supply network, including indirect suppliers and dependencies.",
+            3: "Be honest about current tracking - this helps us provide better recommendations.",
+            4: "Include all markets where you operate or plan to expand in the next 2-3 years.",
+            5: "Your goals and timeline help us prioritize the most actionable recommendations."
+        };
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Update progress indicators
+        function updateProgress() {
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            const percentage = (currentStep / totalSteps) * 100;
+            
+            progressBar.style.width = percentage + '%';
+            progressText.textContent = `Step ${currentStep} of ${totalSteps}`;
+            
+            // Update step tip
+            document.getElementById('step-tip').textContent = stepTips[currentStep];
+        }
+
+        // Show/hide steps
+        function showStep(stepNumber) {
+            // Hide all steps
+            for (let i = 1; i <= totalSteps; i++) {
+                document.getElementById(`step-${i}`).classList.add('hidden');
+            }
+            
+            // Show current step
+            document.getElementById(`step-${stepNumber}`).classList.remove('hidden');
+            
+            // Update navigation buttons
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            if (stepNumber === 1) {
+                prevBtn.style.display = 'none';
+            } else {
+                prevBtn.style.display = 'inline-flex';
+            }
+            
+            if (stepNumber === totalSteps) {
+                nextBtn.innerHTML = `
+                    Complete Assessment
+                    <svg class="h-5 w-5 ml-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    </svg>
+                `;
+            } else {
+                nextBtn.innerHTML = `
+                    Next
+                    <svg class="h-5 w-5 ml-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"/>
+                    </svg>
+                `;
+            }
+        }
+
+        // Navigate to next step
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                // Validate current step
+                if (validateStep(currentStep)) {
+                    currentStep++;
+                    showStep(currentStep);
+                    updateProgress();
+                    updateRiskScore();
+                }
+            } else {
+                // Complete assessment
+                completeAssessment();
+            }
+        }
+
+        // Navigate to previous step
+        function previousStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+                updateProgress();
+            }
+        }
+
+        // Validate step completion
+        function validateStep(step) {
+            const requiredFields = {
+                1: ['industry-sector', 'annual-revenue'],
+                2: ['supply-region', 'supplier-count'],
+                3: ['carbon-tracking', 'energy-materials'],
+                4: ['compliance-status', 'timeline-concern'],
+                5: ['assessment-goal', 'risk-tolerance']
+            };
+            
+            const fields = requiredFields[step] || [];
+            let isValid = true;
+            
+            fields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (!field.value) {
+                    field.classList.add('border-error');
+                    isValid = false;
+                } else {
+                    field.classList.remove('border-error');
+                }
+            });
+            
+            if (!isValid) {
+                // Show validation message
+                const existingMessage = document.querySelector('.validation-message');
+                if (existingMessage) existingMessage.remove();
+                
+                const message = document.createElement('div');
+                message.className = 'validation-message bg-error-50 border border-error-200 text-error-700 px-4 py-3 rounded-lg mt-4';
+                message.textContent = 'Please complete all required fields before proceeding.';
+                document.querySelector(`#step-${step}`).appendChild(message);
+                
+                setTimeout(() => {
+                    if (message.parentNode) {
+                        message.remove();
+                    }
+                }, 5000);
+            }
+            
+            return isValid;
+        }
+
+        // Update live risk score
+        function updateRiskScore() {
+            const industryRisk = calculateIndustryRisk();
+            const geographicRisk = calculateGeographicRisk();
+            const carbonRisk = calculateCarbonRisk();
+            const regulatoryRisk = calculateRegulatoryRisk();
+            
+            // Calculate overall score (lower is better, 0-100 scale)
+            const baseScore = 50;
+            const totalRisk = industryRisk + geographicRisk + carbonRisk + regulatoryRisk;
+            const finalScore = Math.max(10, Math.min(95, baseScore + totalRisk));
+            
+            // Update score display
+            const scoreElement = document.getElementById('live-score');
+            const scoreBar = document.getElementById('score-bar');
+            const scoreLabel = document.getElementById('score-label');
+            
+            if (totalRisk > 0) {
+                scoreElement.textContent = Math.round(finalScore);
+                scoreBar.style.width = finalScore + '%';
+                
+                // Update color and label based on score
+                let color, label;
+                if (finalScore < 40) {
+                    color = '#38a169'; // green
+                    label = 'Low Risk - Well Positioned';
+                } else if (finalScore < 70) {
+                    color = '#d69e2e'; // yellow
+                    label = 'Moderate Risk - Optimization Recommended';
+                } else {
+                    color = '#e53e3e'; // red
+                    label = 'High Risk - Immediate Action Required';
+                }
+                
+                scoreElement.style.color = color;
+                scoreBar.style.backgroundColor = color;
+                scoreLabel.textContent = label;
+                
+                // Update risk factor displays
+                updateRiskFactors(industryRisk, geographicRisk, carbonRisk, regulatoryRisk);
+                
+                // Show savings preview
+                showSavingsPreview(finalScore);
+            }
+        }
+
+        // Calculate industry-specific risk
+        function calculateIndustryRisk() {
+            const industry = document.getElementById('industry-sector').value;
+            const riskMap = {
+                'manufacturing': 15,
+                'automotive': 20,
+                'chemicals': 25,
+                'textiles': 18,
+                'electronics': 12,
+                'construction': 16,
+                'food-beverage': 8,
+                'retail': 5
+            };
+            return riskMap[industry] || 0;
+        }
+
+        // Calculate geographic risk
+        function calculateGeographicRisk() {
+            const region = document.getElementById('supply-region').value;
+            const complexity = document.getElementById('complexity').value;
+            
+            const regionRisk = {
+                'asia-pacific': 15,
+                'global-mix': 12,
+                'latin-america': 10,
+                'africa-middle-east': 18,
+                'europe': 5,
+                'north-america': 3
+            };
+            
+            const complexityRisk = {
+                'highly-complex': 10,
+                'complex': 7,
+                'moderate': 4,
+                'simple': 1
+            };
+            
+            return (regionRisk[region] || 0) + (complexityRisk[complexity] || 0);
+        }
+
+        // Calculate carbon intensity risk
+        function calculateCarbonRisk() {
+            const tracking = document.getElementById('carbon-tracking').value;
+            const energyMaterials = document.getElementById('energy-materials').value;
+            const transport = document.getElementById('transport-emissions').value;
+            
+            const trackingRisk = {
+                'none': 15,
+                'basic': 10,
+                'supplier-data': 5,
+                'comprehensive': 2,
+                'verified': 0
+            };
+            
+            const materialsRisk = {
+                '76-100': 15,
+                '51-75': 12,
+                '26-50': 8,
+                '11-25': 4,
+                '0-10': 1
+            };
+            
+            const transportRisk = {
+                'very-high': 12,
+                'high': 8,
+                'moderate': 4,
+                'low': 1
+            };
+            
+            return (trackingRisk[tracking] || 0) + (materialsRisk[energyMaterials] || 0) + (transportRisk[transport] || 0);
+        }
+
+        // Calculate regulatory risk
+        function calculateRegulatoryRisk() {
+            const markets = ['market-eu', 'market-us', 'market-canada', 'market-uk', 'market-australia'];
+            const compliance = document.getElementById('compliance-status').value;
+            const timeline = document.getElementById('timeline-concern').value;
+            
+            let marketRisk = 0;
+            markets.forEach(market => {
+                const checkbox = document.getElementById(market);
+                if (checkbox && checkbox.checked) {
+                    const riskValues = {
+                        'market-eu': 12,
+                        'market-uk': 8,
+                        'market-canada': 6,
+                        'market-australia': 5,
+                        'market-us': 4
+                    };
+                    marketRisk += riskValues[market] || 0;
+                }
+            });
+            
+            const complianceRisk = {
+                'not-applicable': 0,
+                'monitoring': 3,
+                'preparing': 6,
+                'partially-compliant': 4,
+                'fully-compliant': 1
+            };
+            
+            const timelineRisk = {
+                'immediate': 15,
+                'short-term': 10,
+                'medium-term': 5,
+                'long-term': 2,
+                'uncertain': 8
+            };
+            
+            return Math.min(20, marketRisk) + (complianceRisk[compliance] || 0) + (timelineRisk[timeline] || 0);
+        }
+
+        // Update individual risk factor displays
+        function updateRiskFactors(industryRisk, geographicRisk, carbonRisk, regulatoryRisk) {
+            const factors = [
+                { id: 'carbon-risk', value: carbonRisk, label: 'Carbon Intensity' },
+                { id: 'geographic-risk', value: geographicRisk, label: 'Geographic Risk' },
+                { id: 'regulatory-risk', value: regulatoryRisk, label: 'Regulatory Exposure' },
+                { id: 'supplier-risk', value: industryRisk, label: 'Supplier Concentration' }
+            ];
+            
+            factors.forEach(factor => {
+                const element = document.getElementById(factor.id);
+                const valueSpan = element.querySelector('span:last-child');
+                
+                let level, color;
+                if (factor.value < 5) {
+                    level = 'Low';
+                    color = 'text-secondary';
+                } else if (factor.value < 15) {
+                    level = 'Medium';
+                    color = 'text-warning';
+                } else {
+                    level = 'High';
+                    color = 'text-error';
+                }
+                
+                valueSpan.textContent = level;
+                valueSpan.className = `text-sm font-medium ${color}`;
+            });
+        }
+
+        // Show savings preview
+        function showSavingsPreview(score) {
+            const preview = document.getElementById('savings-preview');
+            const riskExposure = document.getElementById('risk-exposure');
+            const optimizationSavings = document.getElementById('optimization-savings');
+            
+            // Calculate potential financial impact based on score and company size
+            const revenue = document.getElementById('annual-revenue').value;
+            const revenueMultipliers = {
+                'under-1m': 0.1,
+                '1-10m': 0.5,
+                '10-50m': 2,
+                '50-100m': 5,
+                '100m-plus': 10
+            };
+            
+            const baseMultiplier = revenueMultipliers[revenue] || 1;
+            const riskMultiplier = score / 50; // Scale risk based on score
+            
+            const potentialRisk = Math.round(baseMultiplier * riskMultiplier * 500000); // Base $500K risk
+            const potentialSavings = Math.round(potentialRisk * 0.3); // 30% savings potential
+            
+            riskExposure.textContent = `$${(potentialRisk / 1000).toFixed(0)}K`;
+            optimizationSavings.textContent = `$${(potentialSavings / 1000).toFixed(0)}K`;
+            
+            preview.style.display = 'block';
+        }
+
+        // Complete assessment and show results
+        function completeAssessment() {
+            // Collect all assessment data
+            collectAssessmentData();
+            
+            // Calculate final score
+            updateRiskScore();
+            
+            // Show results modal
+            showResultsModal();
+        }
+
+        // Collect all form data
+        function collectAssessmentData() {
+            const formElements = document.querySelectorAll('input, select, textarea');
+            formElements.forEach(element => {
+                if (element.type === 'checkbox') {
+                    assessmentData[element.id] = element.checked;
+                } else {
+                    assessmentData[element.id] = element.value;
+                }
+            });
+            
+            assessmentData.completedAt = new Date().toISOString();
+            assessmentData.finalScore = document.getElementById('live-score').textContent;
+        }
+
+        // Show results modal
+        function showResultsModal() {
+            const modal = document.getElementById('results-modal');
+            const finalScore = document.getElementById('live-score').textContent;
+            const scoreLabel = document.getElementById('score-label').textContent;
+            
+            // Update modal content
+            document.getElementById('final-score').textContent = finalScore;
+            document.getElementById('final-score-label').textContent = scoreLabel;
+            document.getElementById('final-score-bar').style.width = finalScore + '%';
+            
+            // Set color based on score
+            const score = parseInt(finalScore);
+            let color;
+            if (score < 40) {
+                color = '#38a169';
+            } else if (score < 70) {
+                color = '#d69e2e';
+            } else {
+                color = '#e53e3e';
+            }
+            
+            document.getElementById('final-score').style.color = color;
+            document.getElementById('final-score-bar').style.backgroundColor = color;
+            
+            // Update financial projections
+            const riskExposure = document.getElementById('risk-exposure').textContent;
+            const optimizationSavings = document.getElementById('optimization-savings').textContent;
+            
+            document.getElementById('modal-risk-exposure').textContent = riskExposure.replace('K', '.3M');
+            document.getElementById('modal-optimization-savings').textContent = optimizationSavings;
+            
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close results modal
+        function closeResultsModal() {
+            const modal = document.getElementById('results-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Initialize assessment
+        document.addEventListener('DOMContentLoaded', function() {
+            showStep(1);
+            updateProgress();
+            
+            // Add event listeners for real-time updates
+            const formElements = document.querySelectorAll('input, select');
+            formElements.forEach(element => {
+                element.addEventListener('change', updateRiskScore);
+            });
+            
+            // Add smooth scrolling for form navigation
+            const assessmentForm = document.querySelector('.assessment-step');
+            if (assessmentForm) {
+                assessmentForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+
+        // Add loading states for buttons
+        document.querySelectorAll('.btn-primary, .btn-secondary, .btn-accent').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (this.href && !this.href.includes('#')) {
+                    this.style.opacity = '0.8';
+                    this.style.transform = 'scale(0.98)';
+                }
+            });
+        });
+
+        // Auto-save assessment data to localStorage
+        function autoSaveAssessment() {
+            const formData = {};
+            const formElements = document.querySelectorAll('input, select, textarea');
+            
+            formElements.forEach(element => {
+                if (element.type === 'checkbox') {
+                    formData[element.id] = element.checked;
+                } else {
+                    formData[element.id] = element.value;
+                }
+            });
+            
+            localStorage.setItem('lcri_assessment_draft', JSON.stringify(formData));
+        }
+
+        // Load saved assessment data
+        function loadSavedAssessment() {
+            const savedData = localStorage.getItem('lcri_assessment_draft');
+            if (savedData) {
+                const formData = JSON.parse(savedData);
+                
+                Object.keys(formData).forEach(fieldId => {
+                    const element = document.getElementById(fieldId);
+                    if (element) {
+                        if (element.type === 'checkbox') {
+                            element.checked = formData[fieldId];
+                        } else {
+                            element.value = formData[fieldId];
+                        }
+                    }
+                });
+                
+                updateRiskScore();
+            }
+        }
+
+        // Auto-save every 30 seconds
+        setInterval(autoSaveAssessment, 30000);
+
+        // Load saved data on page load
+        window.addEventListener('load', loadSavedAssessment);
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
