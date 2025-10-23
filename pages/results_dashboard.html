@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Results Dashboard - ProximaChain</title>
+    <meta name="description" content="Comprehensive supply chain resilience analysis with real-time LCRI scores, predictive analytics, and actionable optimization recommendations." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fproximacha1745back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+  <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-background">
+    <!-- Navigation Header -->
+    <nav class="bg-white shadow-subtle sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-8 w-8 text-primary" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                            <circle cx="16" cy="16" r="4" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-bold text-primary">ProximaChain</h1>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="homepage.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-colors">Home</a>
+                        <a href="lcri_assessment_tool.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-colors">LCRI Assessment</a>
+                        <a href="results_dashboard.html" class="text-primary font-semibold px-3 py-2 rounded-md text-sm">Dashboard</a>
+                        <a href="market_intelligence.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-colors">Market Intelligence</a>
+                        <a href="supplier_optimization.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-colors">Supplier Optimization</a>
+                        <a href="roi_calculator.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-colors">ROI Calculator</a>
+                    </div>
+                </div>
+
+                <!-- User Menu -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <div class="relative">
+                        <button class="flex items-center text-text-secondary hover:text-primary transition-colors" onclick="toggleNotifications()">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5-5 5-5h-5m-6 10v-2a6 6 0 10-12 0v2l-2 2v1h16v-1l-2-2z"/>
+                            </svg>
+                            <span class="ml-1 bg-error text-white text-xs rounded-full px-2 py-1">3</span>
+                        </button>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=40&h=40&auto=format&fit=crop&ixlib=rb-4.0.3" alt="User Avatar" class="w-8 h-8 rounded-full object-cover" onerror="this.src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&fit=crop'; this.onerror=null;" />
+                        <span class="ml-2 text-sm font-medium text-text-primary">Sarah Chen</span>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="text-text-secondary hover:text-primary p-2" onclick="toggleMobileMenu()">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-surface">
+                <a href="homepage.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Home</a>
+                <a href="lcri_assessment_tool.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">LCRI Assessment</a>
+                <a href="results_dashboard.html" class="text-primary font-semibold block px-3 py-2 rounded-md text-base">Dashboard</a>
+                <a href="market_intelligence.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Market Intelligence</a>
+                <a href="supplier_optimization.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Supplier Optimization</a>
+                <a href="roi_calculator.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">ROI Calculator</a>
+            </div>
+        </div>
+
+        <!-- Notifications Dropdown -->
+        <div id="notifications-dropdown" class="absolute right-4 top-16 w-80 bg-white rounded-lg shadow-prominent border border-gray-200 hidden z-50">
+            <div class="p-4 border-b border-gray-200">
+                <h3 class="font-semibold text-primary">Recent Alerts</h3>
+            </div>
+            <div class="max-h-64 overflow-y-auto">
+                <div class="p-4 border-b border-gray-100 hover:bg-surface transition-colors">
+                    <div class="flex items-start">
+                        <div class="w-2 h-2 bg-warning rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        <div>
+                            <p class="text-sm font-medium text-text-primary">Carbon Tax Alert</p>
+                            <p class="text-xs text-text-secondary mt-1">EU carbon tax increase projected for Q2 2025</p>
+                            <p class="text-xs text-text-muted mt-1">2 hours ago</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 border-b border-gray-100 hover:bg-surface transition-colors">
+                    <div class="flex items-start">
+                        <div class="w-2 h-2 bg-error rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        <div>
+                            <p class="text-sm font-medium text-text-primary">Supplier Risk Update</p>
+                            <p class="text-xs text-text-secondary mt-1">TechFlow Manufacturing risk score increased to 85</p>
+                            <p class="text-xs text-text-muted mt-1">5 hours ago</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 hover:bg-surface transition-colors">
+                    <div class="flex items-start">
+                        <div class="w-2 h-2 bg-secondary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        <div>
+                            <p class="text-sm font-medium text-text-primary">Optimization Opportunity</p>
+                            <p class="text-xs text-text-secondary mt-1">New sustainable supplier match found</p>
+                            <p class="text-xs text-text-muted mt-1">1 day ago</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Header -->
+    <section class="bg-gradient-to-r from-primary-50 to-accent-50 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                <div>
+                    <h1 class="text-3xl lg:text-4xl font-bold text-primary mb-2">
+                        Supply Chain Resilience Dashboard
+                    </h1>
+                    <p class="text-lg text-text-secondary mb-4 lg:mb-0">
+                        Real-time insights and predictive analytics for your supply chain
+                    </p>
+                    <div class="flex items-center text-sm text-text-muted">
+                        <svg class="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"/>
+                        </svg>
+                        Last updated: September 29, 2025 at 9:32 AM
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3 mt-4 lg:mt-0">
+                    <button onclick="exportReport()" class="btn-secondary">
+                        <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        Export Report
+                    </button>
+                    <button onclick="shareWithTeam()" class="btn-accent">
+                        <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
+                        </svg>
+                        Share with Team
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Metrics Overview -->
+    <section class="py-8 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Overall LCRI Score -->
+                <div class="card text-center">
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="relative">
+                            <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                <path class="text-gray-200" stroke="currentColor" stroke-width="3" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                <path class="text-warning" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="72, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="text-2xl font-bold text-warning">72</span>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-semibold text-primary mb-2">Overall LCRI Score</h3>
+                    <p class="text-sm text-text-secondary">Moderate Risk</p>
+                    <div class="mt-3 flex items-center justify-center">
+                        <svg class="h-4 w-4 text-warning mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"/>
+                        </svg>
+                        <span class="text-xs text-text-muted">Optimization recommended</span>
+                    </div>
+                </div>
+
+                <!-- Financial Exposure -->
+                <div class="card text-center">
+                    <div class="w-12 h-12 bg-error-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="h-6 w-6 text-error" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-primary mb-2">Potential Exposure</h3>
+                    <p class="text-2xl font-bold text-error mb-1">$2.3M</p>
+                    <p class="text-sm text-text-secondary">Carbon tax liability</p>
+                    <div class="mt-3 flex items-center justify-center">
+                        <svg class="h-4 w-4 text-error mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.293 7.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L6.707 7.707a1 1 0 01-1.414 0z"/>
+                        </svg>
+                        <span class="text-xs text-error">+15% vs last quarter</span>
+                    </div>
+                </div>
+
+                <!-- Optimization Savings -->
+                <div class="card text-center">
+                    <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="h-6 w-6 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-primary mb-2">Optimization Savings</h3>
+                    <p class="text-2xl font-bold text-secondary mb-1">$450K</p>
+                    <p class="text-sm text-text-secondary">Annual potential</p>
+                    <div class="mt-3 flex items-center justify-center">
+                        <svg class="h-4 w-4 text-secondary mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M14.707 12.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l2.293-2.293a1 1 0 011.414 0z"/>
+                        </svg>
+                        <span class="text-xs text-secondary">19% cost reduction</span>
+                    </div>
+                </div>
+
+                <!-- Supplier Health -->
+                <div class="card text-center">
+                    <div class="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="h-6 w-6 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-primary mb-2">Supplier Health</h3>
+                    <p class="text-2xl font-bold text-accent mb-1">78%</p>
+                    <p class="text-sm text-text-secondary">Average resilience</p>
+                    <div class="mt-3 flex items-center justify-center">
+                        <div class="w-16 bg-gray-200 rounded-full h-2">
+                            <div class="bg-accent h-2 rounded-full" style="width: 78%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Dashboard Content -->
+    <section class="py-8 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Left Column - Risk Analysis -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- Risk Trend Chart -->
+                    <div class="card">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-xl font-semibold text-primary">Risk Trend Analysis</h3>
+                            <div class="flex space-x-2">
+                                <button class="text-sm px-3 py-1 bg-accent text-white rounded-md">6M</button>
+                                <button class="text-sm px-3 py-1 text-text-secondary hover:bg-surface rounded-md">1Y</button>
+                                <button class="text-sm px-3 py-1 text-text-secondary hover:bg-surface rounded-md">2Y</button>
+                            </div>
+                        </div>
+                        <div class="h-64 bg-surface rounded-lg flex items-center justify-center">
+                            <svg class="w-full h-full" viewBox="0 0 400 200">
+                                <!-- Chart Grid -->
+                                <defs>
+                                    <pattern id="grid" width="40" height="20" patternUnits="userSpaceOnUse">
+                                        <path d="M 40 0 L 0 0 0 20" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+                                    </pattern>
+                                </defs>
+                                <rect width="100%" height="100%" fill="url(#grid)"/>
+                                
+                                <!-- Risk Trend Line -->
+                                <polyline fill="none" stroke="#d69e2e" stroke-width="3" points="20,160 60,140 100,120 140,130 180,110 220,100 260,95 300,85 340,72 380,68"/>
+                                
+                                <!-- Data Points -->
+                                <circle cx="20" cy="160" r="4" fill="#d69e2e"/>
+                                <circle cx="60" cy="140" r="4" fill="#d69e2e"/>
+                                <circle cx="100" cy="120" r="4" fill="#d69e2e"/>
+                                <circle cx="140" cy="130" r="4" fill="#d69e2e"/>
+                                <circle cx="180" cy="110" r="4" fill="#d69e2e"/>
+                                <circle cx="220" cy="100" r="4" fill="#d69e2e"/>
+                                <circle cx="260" cy="95" r="4" fill="#d69e2e"/>
+                                <circle cx="300" cy="85" r="4" fill="#d69e2e"/>
+                                <circle cx="340" cy="72" r="4" fill="#d69e2e"/>
+                                <circle cx="380" cy="68" r="4" fill="#d69e2e"/>
+                                
+                                <!-- Labels -->
+                                <text x="20" y="190" text-anchor="middle" class="text-xs fill-current text-text-muted">Mar</text>
+                                <text x="100" y="190" text-anchor="middle" class="text-xs fill-current text-text-muted">May</text>
+                                <text x="180" y="190" text-anchor="middle" class="text-xs fill-current text-text-muted">Jul</text>
+                                <text x="260" y="190" text-anchor="middle" class="text-xs fill-current text-text-muted">Sep</text>
+                                <text x="340" y="190" text-anchor="middle" class="text-xs fill-current text-text-muted">Nov</text>
+                            </svg>
+                        </div>
+                        <div class="mt-4 flex items-center justify-between text-sm">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-warning rounded-full mr-2"></div>
+                                <span class="text-text-secondary">LCRI Score Trend</span>
+                            </div>
+                            <span class="text-secondary font-medium">-12% improvement</span>
+                        </div>
+                    </div>
+
+                    <!-- Risk Factors Breakdown -->
+                    <div class="card">
+                        <h3 class="text-xl font-semibold text-primary mb-6">Risk Factor Analysis</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 bg-surface rounded-lg">
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 bg-error rounded-full mr-3"></div>
+                                    <div>
+                                        <h4 class="font-medium text-text-primary">Carbon Intensive Suppliers</h4>
+                                        <p class="text-sm text-text-secondary">23% of supply base in high-risk regions</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-lg font-bold text-error">High</span>
+                                    <p class="text-sm text-text-muted">Impact: $1.2M</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between p-4 bg-surface rounded-lg">
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 bg-warning rounded-full mr-3"></div>
+                                    <div>
+                                        <h4 class="font-medium text-text-primary">Geographic Concentration</h4>
+                                        <p class="text-sm text-text-secondary">67% of suppliers in Asia-Pacific region</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-lg font-bold text-warning">Medium</span>
+                                    <p class="text-sm text-text-muted">Impact: $680K</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between p-4 bg-surface rounded-lg">
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 bg-warning rounded-full mr-3"></div>
+                                    <div>
+                                        <h4 class="font-medium text-text-primary">Regulatory Exposure</h4>
+                                        <p class="text-sm text-text-secondary">EU carbon tax compliance gaps</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-lg font-bold text-warning">Medium</span>
+                                    <p class="text-sm text-text-muted">Impact: $420K</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between p-4 bg-surface rounded-lg">
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 bg-secondary rounded-full mr-3"></div>
+                                    <div>
+                                        <h4 class="font-medium text-text-primary">Supply Chain Transparency</h4>
+                                        <p class="text-sm text-text-secondary">Good visibility across tier 1 suppliers</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-lg font-bold text-secondary">Low</span>
+                                    <p class="text-sm text-text-muted">Impact: $50K</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 pt-4 border-t border-gray-200">
+                            <a href="supplier_optimization.html" class="btn-primary w-full text-center">
+                                View Optimization Recommendations
+                            </a>
+                        </div>
+                    </div>
+<!-- Supplier Performance Matrix -->
+                    <div class="card">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-xl font-semibold text-primary">Supplier Risk Matrix</h3>
+                            <button onclick="toggleSupplierView()" class="text-sm text-accent hover:text-accent-700">
+                                View All Suppliers →
+                            </button>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="border-b border-gray-200">
+                                        <th class="text-left py-3 px-4 font-medium text-text-secondary">Supplier</th>
+                                        <th class="text-left py-3 px-4 font-medium text-text-secondary">Risk Score</th>
+                                        <th class="text-left py-3 px-4 font-medium text-text-secondary">Carbon Intensity</th>
+                                        <th class="text-left py-3 px-4 font-medium text-text-secondary">Spend</th>
+                                        <th class="text-left py-3 px-4 font-medium text-text-secondary">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-gray-100 hover:bg-surface transition-colors">
+                                        <td class="py-3 px-4">
+                                            <div class="flex items-center">
+                                                <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=40&h=40&auto=format&fit=crop&ixlib=rb-4.0.3" alt="TechFlow Manufacturing" class="w-8 h-8 rounded object-cover mr-3" onerror="this.src='https://images.pexels.com/photos/236705/pexels-photo-236705.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&fit=crop'; this.onerror=null;" />
+                                                <div>
+                                                    <p class="font-medium text-text-primary">TechFlow Manufacturing</p>
+                                                    <p class="text-sm text-text-muted">Electronics</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-error-100 text-error">
+                                                85 - High
+                                            </span>
+                                        </td>
+                                        <td class="py-3 px-4 text-text-primary">2.4 tCO2e/$M</td>
+                                        <td class="py-3 px-4 text-text-primary">$2.1M</td>
+                                        <td class="py-3 px-4">
+                                            <button class="text-accent hover:text-accent-700 text-sm font-medium">
+                                                Review →
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100 hover:bg-surface transition-colors">
+                                        <td class="py-3 px-4">
+                                            <div class="flex items-center">
+                                                <img src="https://images.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg?q=80&w=40&h=40&auto=format&fit=crop" alt="GreenTech Solutions" class="w-8 h-8 rounded object-cover mr-3" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=40&h=40&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                                                <div>
+                                                    <p class="font-medium text-text-primary">GreenTech Solutions</p>
+                                                    <p class="text-sm text-text-muted">Components</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-warning-100 text-warning">
+                                                62 - Medium
+                                            </span>
+                                        </td>
+                                        <td class="py-3 px-4 text-text-primary">1.8 tCO2e/$M</td>
+                                        <td class="py-3 px-4 text-text-primary">$1.5M</td>
+                                        <td class="py-3 px-4">
+                                            <button class="text-accent hover:text-accent-700 text-sm font-medium">
+                                                Review →
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-surface transition-colors">
+                                        <td class="py-3 px-4">
+                                            <div class="flex items-center">
+                                                <img src="https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&fit=crop" alt="Precision Components" class="w-8 h-8 rounded object-cover mr-3" onerror="this.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=40&h=40&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                                                <div>
+                                                    <p class="font-medium text-text-primary">Precision Components</p>
+                                                    <p class="text-sm text-text-muted">Manufacturing</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary-100 text-secondary">
+                                                34 - Low
+                                            </span>
+                                        </td>
+                                        <td class="py-3 px-4 text-text-primary">0.9 tCO2e/$M</td>
+                                        <td class="py-3 px-4 text-text-primary">$890K</td>
+                                        <td class="py-3 px-4">
+                                            <button class="text-accent hover:text-accent-700 text-sm font-medium">
+                                                Review →
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Insights & Actions -->
+                <div class="space-y-8">
+                    <!-- Quick Actions -->
+                    <div class="card">
+                        <h3 class="text-lg font-semibold text-primary mb-4">Quick Actions</h3>
+                        <div class="space-y-3">
+                            <a href="lcri_assessment_tool.html" class="flex items-center p-3 bg-surface rounded-lg hover:bg-surface-100 transition-colors">
+                                <div class="w-10 h-10 bg-accent-100 rounded-lg flex items-center justify-center mr-3">
+                                    <svg class="h-5 w-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-text-primary">Run New Assessment</p>
+                                    <p class="text-sm text-text-secondary">Update your LCRI score</p>
+                                </div>
+                            </a>
+                            
+                            <a href="supplier_optimization.html" class="flex items-center p-3 bg-surface rounded-lg hover:bg-surface-100 transition-colors">
+                                <div class="w-10 h-10 bg-secondary-100 rounded-lg flex items-center justify-center mr-3">
+                                    <svg class="h-5 w-5 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-text-primary">Find Better Suppliers</p>
+                                    <p class="text-sm text-text-secondary">Explore alternatives</p>
+                                </div>
+                            </a>
+                            
+                            <a href="roi_calculator.html" class="flex items-center p-3 bg-surface rounded-lg hover:bg-surface-100 transition-colors">
+                                <div class="w-10 h-10 bg-warning-100 rounded-lg flex items-center justify-center mr-3">
+                                    <svg class="h-5 w-5 text-warning" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-text-primary">Calculate ROI</p>
+                                    <p class="text-sm text-text-secondary">Project savings</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- AI Recommendations -->
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <div class="w-8 h-8 bg-gradient-to-r from-accent to-secondary rounded-lg flex items-center justify-center mr-3">
+                                <svg class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-primary">AI Recommendations</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-accent-50 rounded-lg border-l-4 border-accent">
+                                <h4 class="font-medium text-text-primary mb-2">Priority Action</h4>
+                                <p class="text-sm text-text-secondary mb-3">Replace TechFlow Manufacturing with EcoTech Solutions to reduce carbon exposure by 45% and save $280K annually.</p>
+                                <button class="text-accent hover:text-accent-700 text-sm font-medium">
+                                    View Details →
+                                </button>
+                            </div>
+                            
+                            <div class="p-4 bg-secondary-50 rounded-lg border-l-4 border-secondary">
+                                <h4 class="font-medium text-text-primary mb-2">Opportunity</h4>
+                                <p class="text-sm text-text-secondary mb-3">Diversify supplier base in APAC region to reduce geographic concentration risk by 30%.</p>
+                                <button class="text-secondary hover:text-secondary-700 text-sm font-medium">
+                                    Explore Options →
+                                </button>
+                            </div>
+                            
+                            <div class="p-4 bg-warning-50 rounded-lg border-l-4 border-warning">
+                                <h4 class="font-medium text-text-primary mb-2">Alert</h4>
+                                <p class="text-sm text-text-secondary mb-3">EU carbon tax rates expected to increase 25% in Q2 2025. Consider early compliance measures.</p>
+                                <button class="text-warning hover:text-warning-700 text-sm font-medium">
+                                    Plan Response →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Peer Benchmarking -->
+                    <div class="card">
+                        <h3 class="text-lg font-semibold text-primary mb-4">Industry Benchmarking</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-text-primary">Your LCRI Score</span>
+                                    <span class="text-sm font-bold text-warning">72</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2 mb-1">
+                                    <div class="bg-warning h-2 rounded-full" style="width: 72%"></div>
+                                </div>
+                                <p class="text-xs text-text-muted">Electronics Industry Average: 68</p>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-text-primary">Carbon Intensity</span>
+                                    <span class="text-sm font-bold text-error">2.1 tCO2e/$M</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2 mb-1">
+                                    <div class="bg-error h-2 rounded-full" style="width: 84%"></div>
+                                </div>
+                                <p class="text-xs text-text-muted">Industry Average: 1.8 tCO2e/$M</p>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-text-primary">Supplier Diversity</span>
+                                    <span class="text-sm font-bold text-secondary">78%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2 mb-1">
+                                    <div class="bg-secondary h-2 rounded-full" style="width: 78%"></div>
+                                </div>
+                                <p class="text-xs text-text-muted">Industry Average: 65%</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 pt-4 border-t border-gray-200">
+                            <a href="market_intelligence.html" class="text-accent hover:text-accent-700 text-sm font-medium">
+                                View Full Industry Report →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="card">
+                        <h3 class="text-lg font-semibold text-primary mb-4">Recent Activity</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start">
+                                <div class="w-2 h-2 bg-secondary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <div>
+                                    <p class="text-sm font-medium text-text-primary">Assessment completed</p>
+                                    <p class="text-xs text-text-muted">2 hours ago</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-2 h-2 bg-accent rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <div>
+                                    <p class="text-sm font-medium text-text-primary">Report shared with team</p>
+                                    <p class="text-xs text-text-muted">5 hours ago</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-2 h-2 bg-warning rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <div>
+                                    <p class="text-sm font-medium text-text-primary">Risk alert triggered</p>
+                                    <p class="text-xs text-text-muted">1 day ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-800 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-secondary mr-3" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                            <circle cx="16" cy="16" r="4" fill="currentColor"/>
+                        </svg>
+                        <h3 class="text-xl font-bold">ProximaChain</h3>
+                    </div>
+                    <p class="text-primary-200 mb-6 max-w-md">
+                        The credit score for supply chain resilience. Transform climate risks into competitive advantages with actionable procurement intelligence.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold mb-4">Platform</h4>
+                    <ul class="space-y-2">
+                        <li><a href="lcri_assessment_tool.html" class="text-primary-200 hover:text-white transition-colors">LCRI Assessment</a></li>
+                        <li><a href="results_dashboard.html" class="text-primary-200 hover:text-white transition-colors">Dashboard</a></li>
+                        <li><a href="market_intelligence.html" class="text-primary-200 hover:text-white transition-colors">Market Intelligence</a></li>
+                        <li><a href="supplier_optimization.html" class="text-primary-200 hover:text-white transition-colors">Supplier Optimization</a></li>
+                        <li><a href="roi_calculator.html" class="text-primary-200 hover:text-white transition-colors">ROI Calculator</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">API Reference</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">Contact Support</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">System Status</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-primary-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-primary-200 text-sm">
+                    © 2025 ProximaChain. All Rights Reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white text-sm transition-colors">Terms of Service</a>
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white text-sm transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Notifications dropdown toggle
+        function toggleNotifications() {
+            const dropdown = document.getElementById('notifications-dropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+        // Export report functionality
+        function exportReport() {
+            // Simulate report export
+            const button = event.target.closest('button');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<svg class="h-5 w-5 mr-2 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Exporting...';
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                alert('Report exported successfully!');
+            }, 2000);
+        }
+
+        // Share with team functionality
+        function shareWithTeam() {
+            const shareData = {
+                title: 'Supply Chain Resilience Dashboard',
+                text: 'Check out our latest LCRI assessment results and optimization recommendations.',
+                url: window.location.href
+            };
+
+            if (navigator.share) {
+                navigator.share(shareData);
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('Dashboard link copied to clipboard!');
+                });
+            }
+        }
+
+        // Toggle supplier view
+        function toggleSupplierView() {
+            window.location.href = 'supplier_optimization.html';
+        }
+
+        // Close notifications when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('notifications-dropdown');
+            const button = event.target.closest('button');
+            
+            if (!dropdown.contains(event.target) && !button?.onclick?.toString().includes('toggleNotifications')) {
+                dropdown.classList.add('hidden');
+            }
+        });
+
+        // Simulate real-time updates
+        function updateMetrics() {
+            const scoreElement = document.querySelector('.text-warning');
+            if (scoreElement && scoreElement.textContent === '72') {
+                // Simulate small score fluctuations
+                const variations = [71, 72, 73];
+                const newScore = variations[Math.floor(Math.random() * variations.length)];
+                scoreElement.textContent = newScore;
+            }
+        }
+
+        // Update metrics every 30 seconds
+        setInterval(updateMetrics, 30000);
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add loading animation for cards
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease-out';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

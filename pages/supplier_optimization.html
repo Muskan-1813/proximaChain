@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supplier Optimization - ProximaChain</title>
+    <meta name="description" content="Find alternative suppliers, compare risks, and optimize your supply chain with ProximaChain's intelligent supplier recommendations and cost-benefit analysis." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fproximacha1745back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+  <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-background">
+    <!-- Navigation Header -->
+    <nav class="bg-white shadow-subtle sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-8 w-8 text-primary" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                            <circle cx="16" cy="16" r="4" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-bold text-primary">ProximaChain</h1>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="homepage.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-colors">Home</a>
+                        <a href="lcri_assessment_tool.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-colors">LCRI Assessment</a>
+                        <a href="results_dashboard.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-colors">Dashboard</a>
+                        <a href="market_intelligence.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-colors">Market Intelligence</a>
+                        <a href="supplier_optimization.html" class="text-primary font-semibold px-3 py-2 rounded-md text-sm">Supplier Optimization</a>
+                        <a href="roi_calculator.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-colors">ROI Calculator</a>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a href="lcri_assessment_tool.html" class="btn-primary">Start Assessment</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="text-text-secondary hover:text-primary p-2" onclick="toggleMobileMenu()">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-surface">
+                <a href="homepage.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Home</a>
+                <a href="lcri_assessment_tool.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">LCRI Assessment</a>
+                <a href="results_dashboard.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Dashboard</a>
+                <a href="market_intelligence.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Market Intelligence</a>
+                <a href="supplier_optimization.html" class="text-primary font-semibold block px-3 py-2 rounded-md text-base">Supplier Optimization</a>
+                <a href="roi_calculator.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">ROI Calculator</a>
+                <div class="px-3 py-2">
+                    <a href="lcri_assessment_tool.html" class="btn-primary w-full text-center">Start Assessment</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-accent-50 to-secondary-50 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-accent/5 to-secondary/5"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+            <div class="text-center">
+                <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-6 leading-tight">
+                    Optimize Your Supply Chain with 
+                    <span class="text-gradient">Smart Alternatives</span>
+                </h1>
+                <p class="text-xl text-text-secondary mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Discover verified sustainable suppliers, compare risks, and make data-driven procurement decisions that reduce costs while building resilience.
+                </p>
+                
+                <!-- Quick Stats -->
+                <div class="flex flex-wrap gap-6 justify-center mb-8">
+                    <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-subtle">
+                        <svg class="h-5 w-5 text-secondary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span class="text-sm font-medium text-text-primary">15,000+ Verified Suppliers</span>
+                    </div>
+                    <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-subtle">
+                        <svg class="h-5 w-5 text-secondary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                        </svg>
+                        <span class="text-sm font-medium text-text-primary">Average 23% Cost Reduction</span>
+                    </div>
+                    <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-subtle">
+                        <svg class="h-5 w-5 text-secondary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                        </svg>
+                        <span class="text-sm font-medium text-text-primary">Real-time Risk Monitoring</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search and Filter Section -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-surface rounded-2xl p-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold text-primary mb-2">Find Your Optimal Suppliers</h2>
+                    <p class="text-text-secondary">Use advanced filters to discover suppliers that match your specific requirements</p>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="mb-6">
+                    <div class="relative">
+                        <input type="text" placeholder="Search suppliers by name, product, or location..." class="input-field pl-12 pr-4" id="supplier-search" onkeyup="filterSuppliers()" />
+                        <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Filter Options -->
+                <div class="grid md:grid-cols-4 gap-4 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Industry</label>
+                        <select class="input-field" onchange="applyFilters()">
+                            <option value>All Industries</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="textiles">Textiles</option>
+                            <option value="automotive">Automotive</option>
+                            <option value="chemicals">Chemicals</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Location</label>
+                        <select class="input-field" onchange="applyFilters()">
+                            <option value>All Locations</option>
+                            <option value="north-america">North America</option>
+                            <option value="europe">Europe</option>
+                            <option value="asia-pacific">Asia Pacific</option>
+                            <option value="latin-america">Latin America</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">LCRI Score</label>
+                        <select class="input-field" onchange="applyFilters()">
+                            <option value>Any Score</option>
+                            <option value="high">High (80-100)</option>
+                            <option value="medium">Medium (60-79)</option>
+                            <option value="low">Low (40-59)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Certifications</label>
+                        <select class="input-field" onchange="applyFilters()">
+                            <option value>All Certifications</option>
+                            <option value="iso14001">ISO 14001</option>
+                            <option value="carbon-neutral">Carbon Neutral</option>
+                            <option value="renewable-energy">100% Renewable</option>
+                            <option value="fair-trade">Fair Trade</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Filter Actions -->
+                <div class="flex flex-wrap gap-4 justify-between items-center">
+                    <div class="flex gap-2">
+                        <button onclick="clearFilters()" class="text-text-secondary hover:text-primary text-sm font-medium transition-colors">
+                            Clear All Filters
+                        </button>
+                        <span class="text-text-muted">|</span>
+                        <button onclick="saveSearch()" class="text-accent hover:text-accent-700 text-sm font-medium transition-colors">
+                            Save Search
+                        </button>
+                    </div>
+                    <div class="text-sm text-text-secondary">
+                        <span id="results-count">1,247</span> suppliers found
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supplier Comparison Section -->
+    <section class="py-16 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">Compare Top Suppliers</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Side-by-side analysis of your current suppliers vs. optimized alternatives
+                </p>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="bg-white rounded-2xl shadow-elevated overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-surface">
+                            <tr>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-text-primary">Supplier</th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-text-primary">LCRI Score</th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-text-primary">Cost/Unit</th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-text-primary">Carbon Intensity</th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-text-primary">Lead Time</th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-text-primary">Risk Level</th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-text-primary">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <!-- Current Supplier -->
+                            <tr class="bg-error-50">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=50&h=50&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Current Supplier" class="w-10 h-10 rounded-lg object-cover mr-3" onerror="this.src='https://images.pexels.com/photos/236705/pexels-photo-236705.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&fit=crop'; this.onerror=null;" />
+                                        <div>
+                                            <div class="font-semibold text-text-primary">GlobalTech Manufacturing</div>
+                                            <div class="text-sm text-text-secondary">Current Supplier</div>
+                                            <div class="text-xs text-error font-medium">High Risk</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-error-100 text-error">
+                                        42
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center font-semibold text-text-primary">$12.50</td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="text-error font-medium">High</div>
+                                    <div class="text-xs text-text-muted">2.8 kg CO₂/unit</div>
+                                </td>
+                                <td class="px-6 py-4 text-center text-text-primary">14 days</td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-error-100 text-error">
+                                        High Risk
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <button class="text-text-muted text-sm">Current</button>
+                                </td>
+                            </tr>
+
+                            <!-- Recommended Supplier 1 -->
+                            <tr class="bg-secondary-50">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <img src="https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&fit=crop" alt="EcoTech Solutions" class="w-10 h-10 rounded-lg object-cover mr-3" onerror="this.src='https://images.pixabay.com/photo/2016/11/19/14/00/code-1839406_150.jpg'; this.onerror=null;" />
+                                        <div>
+                                            <div class="font-semibold text-text-primary">EcoTech Solutions</div>
+                                            <div class="text-sm text-text-secondary">Recommended Alternative</div>
+                                            <div class="text-xs text-secondary font-medium">✓ ISO 14001 Certified</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-secondary-100 text-secondary">
+                                        87
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="font-semibold text-text-primary">$11.20</div>
+                                    <div class="text-xs text-secondary">10% savings</div>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="text-secondary font-medium">Low</div>
+                                    <div class="text-xs text-text-muted">0.8 kg CO₂/unit</div>
+                                </td>
+                                <td class="px-6 py-4 text-center text-text-primary">12 days</td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-secondary-100 text-secondary">
+                                        Low Risk
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <button onclick="selectSupplier('ecotech')" class="btn-secondary text-sm px-4 py-2">
+                                        Select
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <!-- Recommended Supplier 2 -->
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <img src="https://images.pixabay.com/photo/2017/08/10/08/47/laptop-2619337_150.jpg" alt="GreenSource Industries" class="w-10 h-10 rounded-lg object-cover mr-3" onerror="this.src='https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=50&h=50&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                                        <div>
+                                            <div class="font-semibold text-text-primary">GreenSource Industries</div>
+                                            <div class="text-sm text-text-secondary">Alternative Option</div>
+                                            <div class="text-xs text-warning font-medium">✓ Carbon Neutral</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-warning-100 text-warning">
+                                        74
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="font-semibold text-text-primary">$12.80</div>
+                                    <div class="text-xs text-error">2% premium</div>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="text-secondary font-medium">Very Low</div>
+                                    <div class="text-xs text-text-muted">0.3 kg CO₂/unit</div>
+                                </td>
+                                <td class="px-6 py-4 text-center text-text-primary">16 days</td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-warning-100 text-warning">
+                                        Medium Risk
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <button onclick="selectSupplier('greensource')" class="btn-accent text-sm px-4 py-2">
+                                        Select
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <!-- Recommended Supplier 3 -->
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=50&h=50&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Sustainable Supply Co" class="w-10 h-10 rounded-lg object-cover mr-3" onerror="this.src='https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&fit=crop'; this.onerror=null;" />
+                                        <div>
+                                            <div class="font-semibold text-text-primary">Sustainable Supply Co</div>
+                                            <div class="text-sm text-text-secondary">Alternative Option</div>
+                                            <div class="text-xs text-accent font-medium">✓ Fair Trade Certified</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-secondary-100 text-secondary">
+                                        81
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="font-semibold text-text-primary">$11.95</div>
+                                    <div class="text-xs text-secondary">4% savings</div>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="text-secondary font-medium">Low</div>
+                                    <div class="text-xs text-text-muted">1.2 kg CO₂/unit</div>
+                                </td>
+                                <td class="px-6 py-4 text-center text-text-primary">10 days</td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-secondary-100 text-secondary">
+                                        Low Risk
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <button onclick="selectSupplier('sustainable')" class="btn-secondary text-sm px-4 py-2">
+                                        Select
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Comparison Summary -->
+            <div class="mt-8 grid md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl p-6 shadow-subtle">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-semibold text-text-primary">Cost Impact</h3>
+                        <svg class="h-6 w-6 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z"/>
+                        </svg>
+                    </div>
+                    <div class="text-2xl font-bold text-secondary mb-2">$340K</div>
+                    <div class="text-sm text-text-secondary">Annual savings potential</div>
+                    <div class="text-xs text-text-muted mt-1">Based on switching to EcoTech Solutions</div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-subtle">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-semibold text-text-primary">Risk Reduction</h3>
+                        <svg class="h-6 w-6 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                        </svg>
+                    </div>
+                    <div class="text-2xl font-bold text-accent mb-2">67%</div>
+                    <div class="text-sm text-text-secondary">Supply chain risk reduction</div>
+                    <div class="text-xs text-text-muted mt-1">LCRI score improvement: 42 → 87</div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-subtle">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-semibold text-text-primary">Carbon Impact</h3>
+                        <svg class="h-6 w-6 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/>
+                        </svg>
+                    </div>
+                    <div class="text-2xl font-bold text-secondary mb-2">71%</div>
+                    <div class="text-sm text-text-secondary">Carbon footprint reduction</div>
+                    <div class="text-xs text-text-muted mt-1">From 2.8 to 0.8 kg CO₂ per unit</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scenario Planning Tools -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">Scenario Planning & Cost-Benefit Analysis</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Model different supplier combinations and see the financial impact over time
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Scenario Builder -->
+                <div class="bg-surface rounded-2xl p-8">
+                    <h3 class="text-xl font-semibold text-primary mb-6">Build Your Scenario</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">Scenario Name</label>
+                            <input type="text" placeholder="e.g., Q2 2025 Optimization" class="input-field" value="EcoTech Transition Plan" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">Time Horizon</label>
+                            <select class="input-field">
+                                <option value="1">1 Year</option>
+                                <option value="2" selected>2 Years</option>
+                                <option value="3">3 Years</option>
+                                <option value="5">5 Years</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">Annual Volume</label>
+                            <input type="number" placeholder="Units per year" class="input-field" value="50000" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">Carbon Tax Projection</label>
+                            <select class="input-field">
+                                <option value="conservative">Conservative ($25/tonne)</option>
+                                <option value="moderate" selected>Moderate ($45/tonne)</option>
+                                <option value="aggressive">Aggressive ($75/tonne)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">Transition Timeline</label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="text-xs text-text-secondary">Start Date</label>
+                                    <input type="date" class="input-field" value="2025-04-01" />
+                                </div>
+                                <div>
+                                    <label class="text-xs text-text-secondary">Full Transition</label>
+                                    <input type="date" class="input-field" value="2025-10-01" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="runScenario()" class="btn-primary w-full">
+                            Run Scenario Analysis
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results Visualization -->
+                <div class="bg-white rounded-2xl shadow-elevated p-8">
+                    <h3 class="text-xl font-semibold text-primary mb-6">Financial Impact Projection</h3>
+                    
+                    <!-- Chart Placeholder -->
+                    <div class="bg-surface rounded-lg p-6 mb-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-sm font-medium text-text-primary">Cumulative Savings</span>
+                            <span class="text-xs text-text-muted">2-Year Projection</span>
+                        </div>
+                        
+                        <!-- Mock Chart -->
+                        <div class="relative h-48">
+                            <svg class="w-full h-full" viewBox="0 0 400 200">
+                                <!-- Grid lines -->
+                                <defs>
+                                    <pattern id="grid" width="40" height="20" patternUnits="userSpaceOnUse">
+                                        <path d="M 40 0 L 0 0 0 20" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+                                    </pattern>
+                                </defs>
+                                <rect width="100%" height="100%" fill="url(#grid)"/>
+                                
+                                <!-- Savings line -->
+                                <polyline fill="none" stroke="#38a169" stroke-width="3" points="0,180 50,160 100,140 150,110 200,80 250,60 300,40 350,20 400,10"/>
+                                
+                                <!-- Data points -->
+                                <circle cx="100" cy="140" r="4" fill="#38a169"/>
+                                <circle cx="200" cy="80" r="4" fill="#38a169"/>
+                                <circle cx="300" cy="40" r="4" fill="#38a169"/>
+                                <circle cx="400" cy="10" r="4" fill="#38a169"/>
+                                
+                                <!-- Labels -->
+                                <text x="100" y="155" text-anchor="middle" class="text-xs fill-current text-text-muted">Q2</text>
+                                <text x="200" y="155" text-anchor="middle" class="text-xs fill-current text-text-muted">Q4</text>
+                                <text x="300" y="155" text-anchor="middle" class="text-xs fill-current text-text-muted">Q2 '26</text>
+                                <text x="400" y="155" text-anchor="middle" class="text-xs fill-current text-text-muted">Q4 '26</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Key Metrics -->
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="text-center p-4 bg-secondary-50 rounded-lg">
+                            <div class="text-2xl font-bold text-secondary">$680K</div>
+                            <div class="text-sm text-text-secondary">Total Savings</div>
+                        </div>
+                        <div class="text-center p-4 bg-accent-50 rounded-lg">
+                            <div class="text-2xl font-bold text-accent">18 mo</div>
+                            <div class="text-sm text-text-secondary">Payback Period</div>
+                        </div>
+                    </div>
+
+                    <!-- Breakdown -->
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-text-secondary">Direct cost savings</span>
+                            <span class="font-semibold text-secondary">$340K</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-text-secondary">Carbon tax avoidance</span>
+                            <span class="font-semibold text-secondary">$225K</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-text-secondary">Risk premium reduction</span>
+                            <span class="font-semibold text-secondary">$115K</span>
+                        </div>
+                        <div class="border-t pt-2 mt-2">
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold text-text-primary">Total Impact</span>
+                                <span class="font-bold text-secondary text-lg">$680K</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="py-16 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">Optimization Success Stories</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Real SMEs sharing their supplier optimization results
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Success Story 1 -->
+                <div class="bg-white rounded-xl shadow-elevated p-8">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop" alt="David Kim" class="w-12 h-12 rounded-full object-cover mr-4" onerror="this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=60&h=60&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        <div>
+                            <h4 class="font-semibold text-primary">David Kim</h4>
+                            <p class="text-sm text-text-secondary">Procurement Director, Precision Components</p>
+                        </div>
+                    </div>
+                    
+                    <blockquote class="text-text-primary mb-6">
+                        "ProximaChain's supplier optimization saved us $450K in the first year. We switched from three high-risk suppliers to verified alternatives with better pricing and 60% lower carbon intensity."
+                    </blockquote>
+                    
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div>
+                            <div class="text-lg font-bold text-secondary">$450K</div>
+                            <div class="text-xs text-text-muted">Annual Savings</div>
+                        </div>
+                        <div>
+                            <div class="text-lg font-bold text-accent">60%</div>
+                            <div class="text-xs text-text-muted">Carbon Reduction</div>
+                        </div>
+                        <div>
+                            <div class="text-lg font-bold text-warning">3</div>
+                            <div class="text-xs text-text-muted">Suppliers Switched</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Story 2 -->
+                <div class="bg-white rounded-xl shadow-elevated p-8">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.pixabay.com/photo/2017/06/26/02/47/man-2442565_150.jpg" alt="Maria Santos" class="w-12 h-12 rounded-full object-cover mr-4" onerror="this.src='https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=60&h=60&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        <div>
+                            <h4 class="font-semibold text-primary">Maria Santos</h4>
+                            <p class="text-sm text-text-secondary">Supply Chain Manager, EcoFashion Ltd</p>
+                        </div>
+                    </div>
+                    
+                    <blockquote class="text-text-primary mb-6">
+                        "The platform identified suppliers we never knew existed. Our new textile partners are 40% more cost-effective and have helped us achieve carbon neutrality ahead of schedule."
+                    </blockquote>
+                    
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div>
+                            <div class="text-lg font-bold text-secondary">40%</div>
+                            <div class="text-xs text-text-muted">Cost Reduction</div>
+                        </div>
+                        <div>
+                            <div class="text-lg font-bold text-accent">100%</div>
+                            <div class="text-xs text-text-muted">Carbon Neutral</div>
+                        </div>
+                        <div>
+                            <div class="text-lg font-bold text-warning">12 mo</div>
+                            <div class="text-xs text-text-muted">Ahead of Target</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration & API Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">Seamless Integration</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Connect ProximaChain with your existing procurement systems
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- ERP Integration -->
+                <div class="card text-center">
+                    <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="h-8 w-8 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h12a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1V8zm6 2a1 1 0 100 2h2a1 1 0 100-2H9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-3">ERP Systems</h3>
+                    <p class="text-text-secondary mb-4">Direct integration with SAP, Oracle, and other major ERP platforms</p>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="px-3 py-1 bg-surface text-text-secondary text-sm rounded-full">SAP</span>
+                        <span class="px-3 py-1 bg-surface text-text-secondary text-sm rounded-full">Oracle</span>
+                        <span class="px-3 py-1 bg-surface text-text-secondary text-sm rounded-full">NetSuite</span>
+                    </div>
+                </div>
+
+                <!-- Procurement Tools -->
+                <div class="card text-center">
+                    <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="h-8 w-8 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-3">Procurement Platforms</h3>
+                    <p class="text-text-secondary mb-4">Sync with Ariba, Coupa, and other procurement management tools</p>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="px-3 py-1 bg-surface text-text-secondary text-sm rounded-full">Ariba</span>
+                        <span class="px-3 py-1 bg-surface text-text-secondary text-sm rounded-full">Coupa</span>
+                        <span class="px-3 py-1 bg-surface text-text-secondary text-sm rounded-full">Jaggaer</span>
+                    </div>
+                </div>
+
+                <!-- API Access -->
+                <div class="card text-center">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="h-8 w-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-3">RESTful API</h3>
+                    <p class="text-text-secondary mb-4">Build custom integrations with our comprehensive API</p>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="px-3 py-1 bg-surface text-text-secondary text-sm rounded-full">REST</span>
+                        <span class="px-3 py-1 bg-surface text-text-secondary text-sm rounded-full">Webhooks</span>
+                        <span class="px-3 py-1 bg-surface text-text-secondary text-sm rounded-full">GraphQL</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="javascript:void(0)" class="btn-primary mr-4">
+                    View Integration Guide
+                </a>
+                <a href="javascript:void(0)" class="btn-accent">
+                    API Documentation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary to-accent text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl lg:text-5xl font-bold mb-6">
+                Ready to Optimize Your Supply Chain?
+            </h2>
+            <p class="text-xl mb-8 opacity-90">
+                Start discovering better suppliers and reducing risks today
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="lcri_assessment_tool.html" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors shadow-lg">
+                    Start Free Assessment
+                </a>
+                <a href="results_dashboard.html" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-primary transition-colors">
+                    View Sample Dashboard
+                </a>
+            </div>
+            
+            <p class="text-sm mt-6 opacity-75">
+                No credit card required • Access to 15,000+ verified suppliers
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-800 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-secondary mr-3" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                            <circle cx="16" cy="16" r="4" fill="currentColor"/>
+                        </svg>
+                        <h3 class="text-xl font-bold">ProximaChain</h3>
+                    </div>
+                    <p class="text-primary-200 mb-6 max-w-md">
+                        The credit score for supply chain resilience. Transform climate risks into competitive advantages with actionable procurement intelligence.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold mb-4">Platform</h4>
+                    <ul class="space-y-2">
+                        <li><a href="lcri_assessment_tool.html" class="text-primary-200 hover:text-white transition-colors">LCRI Assessment</a></li>
+                        <li><a href="results_dashboard.html" class="text-primary-200 hover:text-white transition-colors">Dashboard</a></li>
+                        <li><a href="market_intelligence.html" class="text-primary-200 hover:text-white transition-colors">Market Intelligence</a></li>
+                        <li><a href="supplier_optimization.html" class="text-primary-200 hover:text-white transition-colors">Supplier Optimization</a></li>
+                        <li><a href="roi_calculator.html" class="text-primary-200 hover:text-white transition-colors">ROI Calculator</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">API Reference</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">Contact Support</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">System Status</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-primary-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-primary-200 text-sm">
+                    © 2025 ProximaChain. All Rights Reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white text-sm transition-colors">Terms of Service</a>
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white text-sm transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Filter suppliers function
+        function filterSuppliers() {
+            const searchTerm = document.getElementById('supplier-search').value.toLowerCase();
+            // Mock filtering logic - in real app would filter actual supplier data
+            console.log('Filtering suppliers for:', searchTerm);
+            updateResultsCount();
+        }
+
+        // Apply filters function
+        function applyFilters() {
+            // Mock filter application - in real app would apply actual filters
+            console.log('Applying filters');
+            updateResultsCount();
+        }
+
+        // Clear filters function
+        function clearFilters() {
+            document.getElementById('supplier-search').value = '';
+            const selects = document.querySelectorAll('select');
+            selects.forEach(select => select.selectedIndex = 0);
+            updateResultsCount();
+        }
+
+        // Save search function
+        function saveSearch() {
+            alert('Search saved successfully! You will receive alerts when new matching suppliers are added.');
+        }
+
+        // Update results count
+        function updateResultsCount() {
+            const count = Math.floor(Math.random() * 500) + 800; // Mock count
+            document.getElementById('results-count').textContent = count.toLocaleString();
+        }
+
+        // Select supplier function
+        function selectSupplier(supplierId) {
+            const supplierNames = {
+                'ecotech': 'EcoTech Solutions',
+                'greensource': 'GreenSource Industries',
+                'sustainable': 'Sustainable Supply Co'
+            };
+            
+            const supplierName = supplierNames[supplierId];
+            if (confirm(`Are you sure you want to select ${supplierName} as your preferred supplier?`)) {
+                alert(`Great choice! ${supplierName} has been added to your preferred suppliers list. Our team will contact you within 24 hours to discuss next steps.`);
+            }
+        }
+
+        // Run scenario analysis
+        function runScenario() {
+            const button = event.target;
+            button.textContent = 'Running Analysis...';
+            button.disabled = true;
+            
+            // Simulate analysis time
+            setTimeout(() => {
+                button.textContent = 'Analysis Complete';
+                setTimeout(() => {
+                    button.textContent = 'Run Scenario Analysis';
+                    button.disabled = false;
+                }, 2000);
+            }, 3000);
+        }
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation for buttons
+        document.querySelectorAll('.btn-primary, .btn-secondary, .btn-accent').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (this.href && !this.href.includes('#') && !this.onclick) {
+                    this.style.opacity = '0.8';
+                    this.style.transform = 'scale(0.98)';
+                }
+            });
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateResultsCount();
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
