@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ROI Calculator - ProximaChain</title>
+    <meta name="description" content="Calculate the financial impact of supply chain optimization. Get precise ROI projections and cost-benefit analysis for your resilience investments." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fproximacha1745back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+  <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-background">
+    <!-- Navigation Header -->
+    <nav class="bg-white shadow-subtle sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-8 w-8 text-primary" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                            <circle cx="16" cy="16" r="4" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-bold text-primary">ProximaChain</h1>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="homepage.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-colors">Home</a>
+                        <a href="lcri_assessment_tool.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-colors">LCRI Assessment</a>
+                        <a href="results_dashboard.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-colors">Dashboard</a>
+                        <a href="market_intelligence.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-colors">Market Intelligence</a>
+                        <a href="supplier_optimization.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-colors">Supplier Optimization</a>
+                        <a href="roi_calculator.html" class="text-primary font-semibold px-3 py-2 rounded-md text-sm">ROI Calculator</a>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a href="lcri_assessment_tool.html" class="btn-primary">Start Free Assessment</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="text-text-secondary hover:text-primary p-2" onclick="toggleMobileMenu()">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-surface">
+                <a href="homepage.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Home</a>
+                <a href="lcri_assessment_tool.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">LCRI Assessment</a>
+                <a href="results_dashboard.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Dashboard</a>
+                <a href="market_intelligence.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Market Intelligence</a>
+                <a href="supplier_optimization.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Supplier Optimization</a>
+                <a href="roi_calculator.html" class="text-primary font-semibold block px-3 py-2 rounded-md text-base">ROI Calculator</a>
+                <div class="px-3 py-2">
+                    <a href="lcri_assessment_tool.html" class="btn-primary w-full text-center">Start Free Assessment</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-primary-50 to-accent-50 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-6">
+                    ROI Calculator
+                </h1>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto mb-8">
+                    Transform compliance costs into competitive advantages. Calculate the precise financial impact of supply chain optimization and turn climate risk into profitable resilience.
+                </p>
+                
+                <!-- Key Benefits -->
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-subtle">
+                        <svg class="h-5 w-5 text-secondary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z"/>
+                        </svg>
+                        <span class="text-sm font-medium text-text-primary">Instant Financial Projections</span>
+                    </div>
+                    <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-subtle">
+                        <svg class="h-5 w-5 text-secondary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                        </svg>
+                        <span class="text-sm font-medium text-text-primary">Scenario Planning</span>
+                    </div>
+                    <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-subtle">
+                        <svg class="h-5 w-5 text-secondary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"/>
+                        </svg>
+                        <span class="text-sm font-medium text-text-primary">Executive Reports</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator Interface -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <!-- Input Panel -->
+                <div class="lg:col-span-2">
+                    <div class="card">
+                        <div class="mb-8">
+                            <h2 class="text-2xl font-bold text-primary mb-2">Business Parameters</h2>
+                            <p class="text-text-secondary">Adjust the variables below to calculate your personalized ROI projections</p>
+                        </div>
+
+                        <div class="space-y-8">
+                            <!-- Company Information -->
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Industry Sector</label>
+                                    <select class="input-field" id="industry" onchange="updateCalculations()">
+                                        <option value>Select your industry</option>
+                                        <option value="manufacturing">Manufacturing</option>
+                                        <option value="retail">Retail & Consumer Goods</option>
+                                        <option value="automotive">Automotive</option>
+                                        <option value="electronics">Electronics</option>
+                                        <option value="textiles">Textiles & Apparel</option>
+                                        <option value="food">Food & Beverage</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Annual Revenue (USD)</label>
+                                    <select class="input-field" id="revenue" onchange="updateCalculations()">
+                                        <option value>Select revenue range</option>
+                                        <option value="1000000">$1M - $5M</option>
+                                        <option value="5000000">$5M - $10M</option>
+                                        <option value="10000000">$10M - $25M</option>
+                                        <option value="25000000">$25M - $50M</option>
+                                        <option value="50000000">$50M - $100M</option>
+                                        <option value="100000000">$100M+</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Supply Chain Metrics -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-primary mb-4">Supply Chain Profile</h3>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label class="block text-sm font-medium text-text-primary mb-2">
+                                            Procurement Spend (% of Revenue): <span id="procurement-value" class="text-accent font-semibold">35%</span>
+                                        </label>
+                                        <input type="range" id="procurement-spend" min="10" max="70" value="35" class="w-full h-2 bg-surface-200 rounded-lg appearance-none cursor-pointer slider" onchange="updateSliderValue('procurement', this.value); updateCalculations()" />
+                                        <div class="flex justify-between text-xs text-text-muted mt-1">
+                                            <span>10%</span>
+                                            <span>70%</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-text-primary mb-2">
+                                            High-Risk Suppliers (%): <span id="risk-value" class="text-warning font-semibold">45%</span>
+                                        </label>
+                                        <input type="range" id="risk-suppliers" min="0" max="100" value="45" class="w-full h-2 bg-surface-200 rounded-lg appearance-none cursor-pointer slider" onchange="updateSliderValue('risk', this.value); updateCalculations()" />
+                                        <div class="flex justify-between text-xs text-text-muted mt-1">
+                                            <span>0%</span>
+                                            <span>100%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Risk Factors -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-primary mb-4">Risk Exposure</h3>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label class="block text-sm font-medium text-text-primary mb-2">
+                                            Carbon Tax Exposure ($/tonne): <span id="carbon-value" class="text-error font-semibold">$85</span>
+                                        </label>
+                                        <input type="range" id="carbon-tax" min="25" max="200" value="85" class="w-full h-2 bg-surface-200 rounded-lg appearance-none cursor-pointer slider" onchange="updateSliderValue('carbon', this.value); updateCalculations()" />
+                                        <div class="flex justify-between text-xs text-text-muted mt-1">
+                                            <span>$25</span>
+                                            <span>$200</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-text-primary mb-2">
+                                            Geographic Concentration (%): <span id="geo-value" class="text-warning font-semibold">65%</span>
+                                        </label>
+                                        <input type="range" id="geo-concentration" min="0" max="100" value="65" class="w-full h-2 bg-surface-200 rounded-lg appearance-none cursor-pointer slider" onchange="updateSliderValue('geo', this.value); updateCalculations()" />
+                                        <div class="flex justify-between text-xs text-text-muted mt-1">
+                                            <span>0%</span>
+                                            <span>100%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Optimization Targets -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-primary mb-4">Optimization Goals</h3>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label class="block text-sm font-medium text-text-primary mb-2">
+                                            Risk Reduction Target (%): <span id="reduction-value" class="text-secondary font-semibold">40%</span>
+                                        </label>
+                                        <input type="range" id="risk-reduction" min="10" max="80" value="40" class="w-full h-2 bg-surface-200 rounded-lg appearance-none cursor-pointer slider" onchange="updateSliderValue('reduction', this.value); updateCalculations()" />
+                                        <div class="flex justify-between text-xs text-text-muted mt-1">
+                                            <span>10%</span>
+                                            <span>80%</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-text-primary mb-2">
+                                            Implementation Timeline (months): <span id="timeline-value" class="text-accent font-semibold">12</span>
+                                        </label>
+                                        <input type="range" id="timeline" min="3" max="36" value="12" class="w-full h-2 bg-surface-200 rounded-lg appearance-none cursor-pointer slider" onchange="updateSliderValue('timeline', this.value); updateCalculations()" />
+                                        <div class="flex justify-between text-xs text-text-muted mt-1">
+                                            <span>3 months</span>
+                                            <span>36 months</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Panel -->
+                <div class="lg:col-span-1">
+                    <div class="sticky top-24">
+                        <div class="card bg-gradient-to-br from-primary-50 to-accent-50">
+                            <div class="text-center mb-6">
+                                <h3 class="text-xl font-bold text-primary mb-2">ROI Projection</h3>
+                                <p class="text-text-secondary text-sm">Based on your current parameters</p>
+                            </div>
+
+                            <!-- Key Metrics -->
+                            <div class="space-y-6">
+                                <div class="bg-white rounded-lg p-4 text-center">
+                                    <div class="text-3xl font-bold text-secondary mb-1" id="total-roi">--</div>
+                                    <div class="text-sm text-text-secondary">Total ROI (3 Years)</div>
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-white rounded-lg p-4 text-center">
+                                        <div class="text-xl font-bold text-secondary mb-1" id="annual-savings">--</div>
+                                        <div class="text-xs text-text-secondary">Annual Savings</div>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 text-center">
+                                        <div class="text-xl font-bold text-warning mb-1" id="risk-avoided">--</div>
+                                        <div class="text-xs text-text-secondary">Risk Avoided</div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-white rounded-lg p-4">
+                                    <h4 class="font-semibold text-text-primary mb-3">Payback Timeline</h4>
+                                    <div class="space-y-2">
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-text-secondary">Initial Investment</span>
+                                            <span class="text-sm font-medium" id="investment-cost">--</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-text-secondary">Payback Period</span>
+                                            <span class="text-sm font-medium text-accent" id="payback-period">--</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-text-secondary">Break-even Month</span>
+                                            <span class="text-sm font-medium text-secondary" id="breakeven-month">--</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Action Buttons -->
+                                <div class="space-y-3">
+                                    <button onclick="generateReport()" class="btn-primary w-full">
+                                        Generate Executive Report
+                                    </button>
+                                    <button onclick="runSensitivityAnalysis()" class="btn-secondary w-full">
+                                        Run Sensitivity Analysis
+                                    </button>
+                                    <a href="lcri_assessment_tool.html" class="btn-accent w-full text-center">
+                                        Start Full Assessment
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Projections Chart -->
+    <section class="py-20 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">Financial Impact Visualization</h2>
+                <p class="text-xl text-text-secondary">See how your investment transforms into sustained competitive advantage</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- ROI Timeline Chart -->
+                <div class="card">
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">3-Year ROI Projection</h3>
+                        <p class="text-text-secondary text-sm">Cumulative return on investment over time</p>
+                    </div>
+                    
+                    <div class="h-64 bg-surface rounded-lg flex items-center justify-center" id="roi-chart">
+                        <svg viewBox="0 0 400 200" class="w-full h-full">
+                            <!-- Chart Background -->
+                            <rect width="400" height="200" fill="#f7fafc" rx="8"/>
+                            
+                            <!-- Grid Lines -->
+                            <g stroke="#e2e8f0" stroke-width="1" opacity="0.5">
+                                <line x1="50" y1="20" x2="50" y2="180"/>
+                                <line x1="50" y1="180" x2="380" y2="180"/>
+                                <line x1="50" y1="140" x2="380" y2="140"/>
+                                <line x1="50" y1="100" x2="380" y2="100"/>
+                                <line x1="50" y1="60" x2="380" y2="60"/>
+                            </g>
+                            
+                            <!-- ROI Line -->
+                            <path id="roi-line" stroke="#38a169" stroke-width="3" fill="none" d="M50,180 L130,160 L210,120 L290,80 L370,40"/>
+                            
+                            <!-- Data Points -->
+                            <g fill="#38a169">
+                                <circle cx="50" cy="180" r="4"/>
+                                <circle cx="130" cy="160" r="4"/>
+                                <circle cx="210" cy="120" r="4"/>
+                                <circle cx="290" cy="80" r="4"/>
+                                <circle cx="370" cy="40" r="4"/>
+                            </g>
+                            
+                            <!-- Labels -->
+                            <g fill="#718096" font-size="12" text-anchor="middle">
+                                <text x="50" y="195">Year 0</text>
+                                <text x="130" y="195">Year 1</text>
+                                <text x="210" y="195">Year 2</text>
+                                <text x="290" y="195">Year 3</text>
+                                <text x="370" y="195">Year 4</text>
+                            </g>
+                            
+                            <!-- Y-axis Labels -->
+                            <g fill="#718096" font-size="10" text-anchor="end">
+                                <text x="45" y="185">$0</text>
+                                <text x="45" y="145">$500K</text>
+                                <text x="45" y="105">$1M</text>
+                                <text x="45" y="65">$1.5M</text>
+                                <text x="45" y="25">$2M</text>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Cost Breakdown -->
+                <div class="card">
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">Cost-Benefit Breakdown</h3>
+                        <p class="text-text-secondary text-sm">Annual financial impact by category</p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-4 bg-secondary-50 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-secondary rounded mr-3"></div>
+                                <span class="text-sm font-medium text-text-primary">Supplier Optimization</span>
+                            </div>
+                            <span class="text-sm font-bold text-secondary" id="supplier-savings">$340K</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between p-4 bg-accent-50 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-accent rounded mr-3"></div>
+                                <span class="text-sm font-medium text-text-primary">Risk Mitigation</span>
+                            </div>
+                            <span class="text-sm font-bold text-accent" id="risk-savings">$280K</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between p-4 bg-warning-50 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-warning rounded mr-3"></div>
+                                <span class="text-sm font-medium text-text-primary">Compliance Efficiency</span>
+                            </div>
+                            <span class="text-sm font-bold text-warning" id="compliance-savings">$150K</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between p-4 bg-error-50 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-error rounded mr-3"></div>
+                                <span class="text-sm font-medium text-text-primary">Implementation Cost</span>
+                            </div>
+                            <span class="text-sm font-bold text-error" id="implementation-cost">-$95K</span>
+                        </div>
+                        
+                        <div class="border-t pt-4">
+                            <div class="flex items-center justify-between">
+                                <span class="font-semibold text-text-primary">Net Annual Benefit</span>
+                                <span class="text-lg font-bold text-secondary" id="net-benefit">$675K</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Sensitivity Analysis -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">Sensitivity Analysis</h2>
+                <p class="text-xl text-text-secondary">Understand how key variables affect your ROI projections</p>
+            </div>
+
+            <div class="card">
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Sensitivity Controls -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary mb-6">Variable Impact Analysis</h3>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="text-sm font-medium text-text-primary">Carbon Tax Rate Impact</label>
+                                    <span class="text-sm text-accent font-semibold">High Impact</span>
+                                </div>
+                                <div class="w-full bg-surface-200 rounded-full h-2">
+                                    <div class="bg-accent h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                                <p class="text-xs text-text-muted mt-1">±$50/tonne = ±$420K annual impact</p>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="text-sm font-medium text-text-primary">Supplier Risk Level</label>
+                                    <span class="text-sm text-warning font-semibold">Medium Impact</span>
+                                </div>
+                                <div class="w-full bg-surface-200 rounded-full h-2">
+                                    <div class="bg-warning h-2 rounded-full" style="width: 65%"></div>
+                                </div>
+                                <p class="text-xs text-text-muted mt-1">±20% risk = ±$280K annual impact</p>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="text-sm font-medium text-text-primary">Implementation Speed</label>
+                                    <span class="text-sm text-secondary font-semibold">Medium Impact</span>
+                                </div>
+                                <div class="w-full bg-surface-200 rounded-full h-2">
+                                    <div class="bg-secondary h-2 rounded-full" style="width: 55%"></div>
+                                </div>
+                                <p class="text-xs text-text-muted mt-1">±6 months = ±$190K total impact</p>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="text-sm font-medium text-text-primary">Geographic Diversification</label>
+                                    <span class="text-sm text-accent font-semibold">Low Impact</span>
+                                </div>
+                                <div class="w-full bg-surface-200 rounded-full h-2">
+                                    <div class="bg-accent h-2 rounded-full" style="width: 35%"></div>
+                                </div>
+                                <p class="text-xs text-text-muted mt-1">±25% concentration = ±$120K annual impact</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scenario Comparison -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary mb-6">Scenario Comparison</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-secondary-50 rounded-lg p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="font-semibold text-secondary">Best Case Scenario</h4>
+                                    <span class="text-lg font-bold text-secondary">$1.2M ROI</span>
+                                </div>
+                                <ul class="text-sm text-text-secondary space-y-1">
+                                    <li>• Rapid implementation (6 months)</li>
+                                    <li>• High carbon tax rates ($150/tonne)</li>
+                                    <li>• 60% risk reduction achieved</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-accent-50 rounded-lg p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="font-semibold text-accent">Most Likely Scenario</h4>
+                                    <span class="text-lg font-bold text-accent">$675K ROI</span>
+                                </div>
+                                <ul class="text-sm text-text-secondary space-y-1">
+                                    <li>• Standard implementation (12 months)</li>
+                                    <li>• Current carbon tax rates ($85/tonne)</li>
+                                    <li>• 40% risk reduction achieved</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-warning-50 rounded-lg p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="font-semibold text-warning">Conservative Scenario</h4>
+                                    <span class="text-lg font-bold text-warning">$320K ROI</span>
+                                </div>
+                                <ul class="text-sm text-text-secondary space-y-1">
+                                    <li>• Slow implementation (24 months)</li>
+                                    <li>• Low carbon tax rates ($50/tonne)</li>
+                                    <li>• 25% risk reduction achieved</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="py-20 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-primary mb-4">Real ROI Success Stories</h2>
+                <p class="text-xl text-text-secondary">See how similar companies achieved measurable results</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Success Story 1 -->
+                <div class="bg-white rounded-xl shadow-elevated p-8">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=150&h=150&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Manufacturing facility" class="w-16 h-16 rounded-lg object-cover mr-4" onerror="this.src='https://images.pexels.com/photos/236705/pexels-photo-236705.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop'; this.onerror=null;" />
+                        <div>
+                            <h4 class="font-semibold text-primary">TechFlow Manufacturing</h4>
+                            <p class="text-sm text-text-secondary">$25M Annual Revenue</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between">
+                            <span class="text-sm text-text-secondary">Initial Investment</span>
+                            <span class="text-sm font-semibold">$85K</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-text-secondary">Annual Savings</span>
+                            <span class="text-sm font-semibold text-secondary">$340K</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-text-secondary">Payback Period</span>
+                            <span class="text-sm font-semibold text-accent">3.2 months</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-text-secondary">3-Year ROI</span>
+                            <span class="text-lg font-bold text-primary">1,200%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Story 2 -->
+                <div class="bg-white rounded-xl shadow-elevated p-8">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.pixabay.com/photo/2017/08/10/08/47/laptop-2619337_150.jpg" alt="Electronics company" class="w-16 h-16 rounded-lg object-cover mr-4" onerror="this.src='https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=150&h=150&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        <div>
+                            <h4 class="font-semibold text-primary">GreenTech Solutions</h4>
+                            <p class="text-sm text-text-secondary">$15M Annual Revenue</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between">
+                            <span class="text-sm text-text-secondary">Initial Investment</span>
+                            <span class="text-sm font-semibold">$65K</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-text-secondary">Annual Savings</span>
+                            <span class="text-sm font-semibold text-secondary">$280K</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-text-secondary">Payback Period</span>
+                            <span class="text-sm font-semibold text-accent">2.8 months</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-text-secondary">3-Year ROI</span>
+                            <span class="text-lg font-bold text-primary">1,292%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Story 3 -->
+                <div class="bg-white rounded-xl shadow-elevated p-8">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop" alt="Automotive parts" class="w-16 h-16 rounded-lg object-cover mr-4" onerror="this.src='https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=150&h=150&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        <div>
+                            <h4 class="font-semibold text-primary">Precision Components</h4>
+                            <p class="text-sm text-text-secondary">$45M Annual Revenue</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between">
+                            <span class="text-sm text-text-secondary">Initial Investment</span>
+                            <span class="text-sm font-semibold">$120K</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-text-secondary">Annual Savings</span>
+                            <span class="text-sm font-semibold text-secondary">$520K</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-text-secondary">Payback Period</span>
+                            <span class="text-sm font-semibold text-accent">2.8 months</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-text-secondary">3-Year ROI</span>
+                            <span class="text-lg font-bold text-primary">1,300%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-accent to-secondary text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl lg:text-5xl font-bold mb-6">
+                Ready to Realize These Returns?
+            </h2>
+            <p class="text-xl mb-8 opacity-90">
+                Transform your supply chain risks into measurable competitive advantages
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="lcri_assessment_tool.html" class="bg-white text-accent px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors shadow-lg">
+                    Start Free Assessment
+                </a>
+                <a href="results_dashboard.html" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-accent transition-colors">
+                    View Sample Dashboard
+                </a>
+            </div>
+            
+            <p class="text-sm mt-6 opacity-75">
+                No credit card required • Get your personalized ROI report in minutes
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-800 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-secondary mr-3" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                            <circle cx="16" cy="16" r="4" fill="currentColor"/>
+                        </svg>
+                        <h3 class="text-xl font-bold">ProximaChain</h3>
+                    </div>
+                    <p class="text-primary-200 mb-6 max-w-md">
+                        The credit score for supply chain resilience. Transform climate risks into competitive advantages with actionable procurement intelligence.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold mb-4">Platform</h4>
+                    <ul class="space-y-2">
+                        <li><a href="lcri_assessment_tool.html" class="text-primary-200 hover:text-white transition-colors">LCRI Assessment</a></li>
+                        <li><a href="results_dashboard.html" class="text-primary-200 hover:text-white transition-colors">Dashboard</a></li>
+                        <li><a href="market_intelligence.html" class="text-primary-200 hover:text-white transition-colors">Market Intelligence</a></li>
+                        <li><a href="supplier_optimization.html" class="text-primary-200 hover:text-white transition-colors">Supplier Optimization</a></li>
+                        <li><a href="roi_calculator.html" class="text-primary-200 hover:text-white transition-colors">ROI Calculator</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">API Reference</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">Contact Support</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">System Status</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-primary-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-primary-200 text-sm">
+                    © 2025 ProximaChain. All Rights Reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white text-sm transition-colors">Terms of Service</a>
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white text-sm transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Update slider values
+        function updateSliderValue(type, value) {
+            const displays = {
+                'procurement': 'procurement-value',
+                'risk': 'risk-value',
+                'carbon': 'carbon-value',
+                'geo': 'geo-value',
+                'reduction': 'reduction-value',
+                'timeline': 'timeline-value'
+            };
+            
+            const formats = {
+                'procurement': value + '%',
+                'risk': value + '%',
+                'carbon': '$' + value,
+                'geo': value + '%',
+                'reduction': value + '%',
+                'timeline': value
+            };
+            
+            document.getElementById(displays[type]).textContent = formats[type];
+        }
+
+        // Update calculations
+        function updateCalculations() {
+            const industry = document.getElementById('industry').value;
+            const revenue = parseInt(document.getElementById('revenue').value) || 0;
+            const procurementSpend = parseInt(document.getElementById('procurement-spend').value) || 35;
+            const riskSuppliers = parseInt(document.getElementById('risk-suppliers').value) || 45;
+            const carbonTax = parseInt(document.getElementById('carbon-tax').value) || 85;
+            const geoConcentration = parseInt(document.getElementById('geo-concentration').value) || 65;
+            const riskReduction = parseInt(document.getElementById('risk-reduction').value) || 40;
+            const timeline = parseInt(document.getElementById('timeline').value) || 12;
+
+            if (revenue > 0) {
+                // Calculate base metrics
+                const annualProcurement = revenue * (procurementSpend / 100);
+                const riskExposure = annualProcurement * (riskSuppliers / 100);
+                const carbonExposure = (riskExposure * 0.1 * carbonTax) / 1000; // Simplified carbon calculation
+                
+                // Calculate savings
+                const supplierOptimization = riskExposure * 0.15 * (riskReduction / 100);
+                const riskMitigation = carbonExposure * (riskReduction / 100);
+                const complianceEfficiency = revenue * 0.005 * (riskReduction / 100);
+                
+                const totalAnnualSavings = supplierOptimization + riskMitigation + complianceEfficiency;
+                const implementationCost = revenue * 0.002; // 0.2% of revenue
+                const netAnnualBenefit = totalAnnualSavings - (implementationCost / 3); // Amortize over 3 years
+                
+                const threeYearROI = ((netAnnualBenefit * 3) / implementationCost) * 100;
+                const paybackMonths = (implementationCost / (totalAnnualSavings / 12));
+                
+                // Update display
+                document.getElementById('total-roi').textContent = Math.round(threeYearROI) + '%';
+                document.getElementById('annual-savings').textContent = '$' + Math.round(totalAnnualSavings / 1000) + 'K';
+                document.getElementById('risk-avoided').textContent = '$' + Math.round(riskMitigation / 1000) + 'K';
+                document.getElementById('investment-cost').textContent = '$' + Math.round(implementationCost / 1000) + 'K';
+                document.getElementById('payback-period').textContent = Math.round(paybackMonths * 10) / 10 + ' months';
+                document.getElementById('breakeven-month').textContent = 'Month ' + Math.ceil(paybackMonths);
+                document.getElementById('net-benefit').textContent = '$' + Math.round(netAnnualBenefit / 1000) + 'K';
+                
+                // Update breakdown
+                document.getElementById('supplier-savings').textContent = '$' + Math.round(supplierOptimization / 1000) + 'K';
+                document.getElementById('risk-savings').textContent = '$' + Math.round(riskMitigation / 1000) + 'K';
+                document.getElementById('compliance-savings').textContent = '$' + Math.round(complianceEfficiency / 1000) + 'K';
+                document.getElementById('implementation-cost').textContent = '-$' + Math.round((implementationCost / 3) / 1000) + 'K';
+            }
+        }
+
+        // Generate executive report
+        function generateReport() {
+            // Simulate report generation
+            const button = event.target;
+            const originalText = button.textContent;
+            
+            button.textContent = 'Generating Report...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.textContent = 'Download Report (PDF)';
+                button.onclick = function() {
+                    // Simulate PDF download
+                    alert('Executive ROI Report downloaded successfully!\n\nThe report includes:\n• Detailed financial projections\n• Risk analysis breakdown\n• Implementation roadmap\n• Sensitivity analysis\n• Benchmarking data');
+                    button.textContent = originalText;
+                    button.onclick = generateReport;
+                };
+            }, 2000);
+        }
+
+        // Run sensitivity analysis
+        function runSensitivityAnalysis() {
+            const button = event.target;
+            const originalText = button.textContent;
+            
+            button.textContent = 'Running Analysis...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.textContent = 'View Detailed Analysis';
+                button.disabled = false;
+                
+                // Show analysis results
+                alert('Sensitivity Analysis Complete!\n\nKey Findings:\n• Carbon tax rate has highest impact on ROI\n• Implementation speed affects payback by ±3 months\n• Risk reduction target directly correlates with savings\n• Geographic diversification provides stability');
+                
+                button.textContent = originalText;
+            }, 3000);
+        }
+
+        // Initialize calculations on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set default values and trigger initial calculation
+            setTimeout(updateCalculations, 500);
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation for buttons
+        document.querySelectorAll('.btn-primary, .btn-secondary, .btn-accent').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (this.href && !this.href.includes('#') && !this.onclick) {
+                    this.style.opacity = '0.8';
+                    this.style.transform = 'scale(0.98)';
+                }
+            });
+        });
+
+        // Slider styling
+        const style = document.createElement('style');
+        style.textContent = `
+            .slider::-webkit-slider-thumb {
+                appearance: none;
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                background: #3182ce;
+                cursor: pointer;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            }
+            .slider::-moz-range-thumb {
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                background: #3182ce;
+                cursor: pointer;
+                border: none;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
